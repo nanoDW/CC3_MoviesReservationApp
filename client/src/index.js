@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import basePath from './api/basePath';
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// testowanie CORS
+async function login() {
+    try {
+        const response = await basePath.get('/login');
+        console.log(response);
+    } catch (error) {
+        console.error(error);
+    }
+}
+login();
+//////////////////////////
+
