@@ -25,15 +25,6 @@ const ReservationSchema = new mongoose.Schema({
     }
 });
 
-{
-    "_id": "SsRbSCe6Q9MBWRg6aWqP",
-    "userId": "luU9aTKhNTdK0QElpBRv",
-    "screeningRoomId": "SsRbSCe6Q9MBWRg6aWqP",
-    "seat": "G5",
-    "date": "2019-05-15T17:30:00-00:00",
-    "active": true
-}
-
 const Reservation = mongoose.model('Reservation', ReservationSchema);
 
 function validateReservation(reservation) {
