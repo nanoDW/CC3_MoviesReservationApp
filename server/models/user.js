@@ -30,6 +30,9 @@ const UserSchema = new mongoose.Schema({
         maxlength: 1500,
         required: true,
     },
+    phone: {
+        type: Number,
+    },
     reservations: []
 });
 
@@ -44,8 +47,20 @@ const User = mongoose.model("User", UserSchema);
 
 function validateUser(user) {
     const schema = {
-        email: Joi.string().min(4).max(300).required().email(),
+        email: Joi.string().min(5).max(300).required().email(),
         password: Joi.string().min(4).max(1500).required()
+    };
+
+    return Joi.validate(user, schema);
+}
+
+function validateNewUser(user) {
+    const schema = {
+        name: Joi.string().min(4).max(50).required(),
+        surname: Joi.string().min(4).max(50).required(),
+        email: Joi.string().min(5).max(300).required().email(),
+        password: Joi.string().min(4).max(1500).required(),
+        phone: Joi.number()
     };
 
     return Joi.validate(user, schema);
@@ -53,5 +68,6 @@ function validateUser(user) {
 
 module.exports = {
     User: User,
-    validateUser: validateUser
+    validateUser: validateUser,
+    validateNewUser: validateNewUser
 }

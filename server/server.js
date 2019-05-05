@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const logger = require('morgan');
 require('./db')();
-const { loginRouter, createUser } = require('./routes/login');
+const loginRouter = require('./routes/login');
+const registrRouter = require('./routes/register');
 
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(cors({
 
 // Routes
 app.use('/login', loginRouter);
+app.use('/register', registrRouter);
 
 
 //server PORT
@@ -27,6 +29,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Listening on port ${port}...`)
 })
-
-
-//createUser();

@@ -27,21 +27,7 @@ router.post("/", async (req, res) => {
     res.cookie('token', token, { maxAge: 900000} ).send('Cookie is set');
 });
 
-// to będzie do usunięcia jak zrobimy rejestrację
-async function createUser() {
-    const salt = await bcrypt.genSalt(10);
-    const hashed = await bcrypt.hash('1234', salt);
-    let user = new User({
-        name: 'test',
-        email: 'testuser@gmail.com',
-        password: hashed
-    })
-    let result = await user.save();
-    console.log(result);
-}
 
-module.exports = {
-    loginRouter: router,
-    createUser: createUser
-}
+module.exports = router
+
 
