@@ -33,12 +33,14 @@ const UserSchema = new mongoose.Schema({
     phone: {
         type: Number,
     },
-    reservations: []
+    reservations: [],
+    isAdmin: Boolean
 });
 
 UserSchema.methods.generateAuthToken = function () {
     const token = jwt.sign({
-        _id: this._id
+        _id: this._id,
+        isAdmin: this.isAdmin,
     }, config.get('jwtPrivateKey'));
     return token;
 }
