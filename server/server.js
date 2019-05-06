@@ -4,7 +4,7 @@ const logger = require('morgan');
 require('./db')();
 const loginRouter = require('./routes/login');
 const registrRouter = require('./routes/register');
-
+const movieRouter = require('./routes/movie');
 
 const app = express();
 // Middleware
@@ -22,7 +22,7 @@ app.use(cors({
 // Routes
 app.use('/login', loginRouter);
 app.use('/register', registrRouter);
-
+app.use('/api/movies', movieRouter);
 
 //server PORT
 const port = process.env.PORT || 3000;

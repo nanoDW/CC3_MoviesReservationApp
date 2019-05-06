@@ -12,7 +12,7 @@ const ScreeningSchema = new mongoose.Schema({
         required: true
     },
     date: {
-        type: date,
+        type: Date,
         required: true
     }
 });
