@@ -1,18 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
 const {Movie, validateMovie} = require('../models/movie');
 
 router.get("/", async (req, res) => {
 
-    const movie = await Movie.find();
+    const movies = await Movie.find();
 
-    res.send(movie);
+    res.send(movies);
 });
 
 router.get("/:id", async (req, res) => {
     const movie = await Movie.findById(req.params.id);
-    if (!movie) return res.status(400).send('No movie exists under given ID.');
+    if (!movie) res.status(400).send('No movie exists under given ID.');
 
     res.send(movie);
 });

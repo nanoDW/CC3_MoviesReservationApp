@@ -5,6 +5,7 @@ require('./db')();
 const loginRouter = require('./routes/login');
 const registrRouter = require('./routes/register');
 const movieRouter = require('./routes/movie');
+const reservationRouter = require('./routes/reservation');
 
 const app = express();
 // Middleware
@@ -23,6 +24,7 @@ app.use(cors({
 app.use('/login', loginRouter);
 app.use('/register', registrRouter);
 app.use('/api/movies', movieRouter);
+app.use('/api/reservations', reservationRouter);
 
 //server PORT
 const port = process.env.PORT || 3000;
