@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema({
         required: true,
     },
     phone: {
-        type: Number,
+        type: String,
     },
     reservations: [],
     isAdmin: Boolean
@@ -62,8 +62,8 @@ function validateNewUser(user) {
         surname: Joi.string().min(4).max(50).required(),
         email: Joi.string().min(5).max(300).required().email(),
         password: Joi.string().min(4).max(1500).required(),
-        phone: Joi.number()
-    };
+        phone: Joi.string()
+        };
 
     return Joi.validate(user, schema);
 }

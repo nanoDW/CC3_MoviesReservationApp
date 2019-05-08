@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import basePath from './api/basePath';
+import LoginForm from './components/LoginForm';
 
 
+ReactDOM.render(<LoginForm />, document.querySelector('#root'))
+
+/*
 // testowanie Logowania
 document.querySelector("#submit").addEventListener("click", (event) => {
     event.preventDefault();
@@ -28,4 +32,4 @@ async function login(email, password) {
     }
 }
 //////////////////////////
-
+*/
