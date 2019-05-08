@@ -1,10 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import basePath from './api/basePath';
-import LoginForm from './components/LoginForm';
+import React from "react";
+import ReactDOM from "react-dom";
+import basePath from "./api/basePath";
+import App from "./components/App";
 
-
-ReactDOM.render(<LoginForm />, document.querySelector('#root'))
+ReactDOM.render(<App />, document.querySelector("#root"));
 
 /*
 // testowanie Logowania
