@@ -1,35 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {Movie, validateMovie} = require('../models/movie');
+const {Screening, validateScreening} = require('../models/screening');
 
 router.get("/", async (req, res) => {
 
-    const compactRequest = {
-        title: 1,
-        releaseDate: 1,
-        genre: 1,
-        shortDescription: 1,
-        ageGroup: 1,
-        imageSmall: 1
-    }
-    const fullRequest = {
-        title: 1,
-        releaseDate: 1,
-        genre: 1,
-        durationInMinutes: 1,
-        shortDescription: 1,
-        fullDescription: 1,
-        ageGroup: 1,
-        imageLarge: 1
-    }
+    const screenings = await Screening.find()
 
-
-    const movies = await Movie.find()
-        .limit(parseInt(req.query.limit) || 12)
-        .sort( { releaseDate: -1 } )
-        .select((req.query.size === "compact" ? compactRequest : fullRequest));
-
-    res.send(movies);
+    res.send(screenings);
 });
 
 router.get("/:id", async (req, res) => {
