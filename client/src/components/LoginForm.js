@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Form, Container, Header, Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import basePath from '../api/basePath';
+import "./LoginForm.css";
 
 
 class LoginForm extends React.Component {
@@ -30,11 +31,14 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <Modal trigger={<Button>Login</Button>}>
-                <Header as='h2' textAlign='center'>Log in</Header>
+            <Modal trigger={<Button>Login</Button>} closeIcon>
+                <Header as='h2' textAlign='center'>
+                    Log in
+                    <Header.Subheader>Only logged in users can make reservations</Header.Subheader>
+                </Header>
                 <Modal.Content>
                 <Container text>
-                    <Form onSubmit={this.onFormSubmit}>
+                    <Form size='large' onSubmit={this.onFormSubmit}>
                         <Form.Field required>
                             <label>Email</label>
                             <input placeholder='Email' value={this.state.email} onChange={ (e) => this.setState({ email: e.target.value })} />
@@ -43,9 +47,11 @@ class LoginForm extends React.Component {
                             <label>Password</label>
                             <input placeholder='Password' value={this.state.password} onChange={ (e) => this.setState({ password: e.target.value })} />
                         </Form.Field>
-                        <Button type='submit'>Submit</Button>
+                        <Button type='submit' fluid size='large'>Sign in</Button>
                     </Form>
-                    </Container>
+                    <Header as='h3' textAlign='center'>Don't have an account yet?</Header>
+                    <Button type='submit' fluid size='large' style={{ marginBottom: '3%' }}>Sign up</Button>
+                </Container>
                 </Modal.Content>
             </Modal>
         )
