@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import './MovieList.css';
 class MovieList extends React.Component {
 
     state = {
