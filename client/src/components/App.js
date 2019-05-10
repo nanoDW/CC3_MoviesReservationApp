@@ -12,7 +12,7 @@ class App extends React.Component {
       <>
         <AppHeader loggedIn="true" username="Janusz Kowalski" />
         <LoginForm />
-        <MovieList />
+        <MovieList/>
       </>
     );
   }
