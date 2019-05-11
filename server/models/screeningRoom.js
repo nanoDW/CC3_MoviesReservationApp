@@ -18,20 +18,16 @@ const ScreeningRoomSchema = new mongoose.Schema({
     seats: {
         type: Object
     }
-    reservationHistory: {
-        type: Array
-    }
 });
 
 const ScreeningRoom = mongoose.model('ScreeningRoom', ScreeningRoomSchema);
 
 function validateScreeningRoom(screeningRoom) {
     const schema = {
-        city: Joi.string().required(),
-        cinema: Joi.string().required(),
-        screeningRoom: Joi.string().required(),
+        city: Joi.string(),
+        cinema: Joi.string(),
+        screeningRoom: Joi.string(),
         seats: Joi.object(),
-        reservationHistory: Joi.array()
     };
 
     return Joi.validate(screeningRoom, schema)
