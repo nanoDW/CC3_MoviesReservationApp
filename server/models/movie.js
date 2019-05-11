@@ -37,6 +37,9 @@ const MovieSchema = new mongoose.Schema({
     },
     imageLarge: {
         type: String
+    },
+    screenings: {
+        type: Array
     }
 });
 

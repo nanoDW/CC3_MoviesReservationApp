@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {Movie, validateMovie} = require('../models/movie');
+const {Screening} = require('../models/screening');
 
 router.get("/", async (req, res) => {
 
@@ -35,6 +36,14 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     const movie = await Movie.findById(req.params.id);
     if (!movie) return res.status(400).send('No movie exists under given ID.');
+
+    const screenings = await Screening.find({movieId: movie._id})
+        .select({
+            _id: 1,
+            date: 1
+        })
+    
+        movie.screenings = screenings;
 
     res.send(movie);
 });
