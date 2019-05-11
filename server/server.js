@@ -24,7 +24,7 @@ app.use(cors({
 app.use('/login', loginRouter);
 app.use('/register', registrRouter);
 app.use('/api/movies', movieRouter);
-app.use('/api/screening', screeningRouter);
+app.use('/api/screenings', screeningRouter);
 
 //server PORT
 const port = process.env.PORT || 3000;

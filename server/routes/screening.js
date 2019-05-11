@@ -11,10 +11,10 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-    const movie = await Movie.findById(req.params.id);
-    if (!movie) return res.status(400).send('No movie exists under given ID.');
+    const screening = await Screening.findById(req.params.id);
+    if (!screening) return res.status(400).send('No screening exists under given ID.');
 
-    res.send(movie);
+    res.send(screening);
 });
 
 router.post("/", async (req, res) => {
