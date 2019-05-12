@@ -37,4 +37,4 @@ localhost:3000/api/movies/?limit=5&size=compact&genre=horror&age=mature
 which will return compact information of 5 horror movies for mature audience.
 
 To get movie by id you call /api/movies/id
-ex: ```jslocalhost:3000/api/movies/5cd2f32458e6681ba0294bf0```
+ex: ```js localhost:3000/api/movies/5cd2f32458e6681ba0294bf0 ```
