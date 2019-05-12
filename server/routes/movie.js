@@ -24,8 +24,10 @@ router.get("/", async (req, res) => {
         imageLarge: 1
     }
 
+    const reqGenre = new RegExp(req.query.genre || /./, "gi");
+    const reqAge = new RegExp(req.query.age || /./, "gi");
 
-    const movies = await Movie.find()
+    const movies = await Movie.find({genre: reqGenre, ageGroup: reqAge})
         .limit(parseInt(req.query.limit) || 12)
         .sort( { releaseDate: -1 } )
         .select((req.query.size === "compact" ? compactRequest : fullRequest));
