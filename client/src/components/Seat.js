@@ -8,15 +8,21 @@ class Seat extends React.Component {
             seats: this.props.seats,
             backColor: ""
         }
+
+        this.setColor = this.setColor.bind(this);
+        this.selectSeat = this.selectSeat.bind(this);
     }
 
     selectSeat = (e) => {
         e.preventDefault()
 
         console.log(e.target.innerText)
+
+        //this.setColor();
     }
 
-    registerColor = (color) => {
+    setColor = () => {
+        const color = this.state.backColor === "#1e8073" ? "#345f9e" : "#1e8073";
         this.setState({backColor: color})
     }
 
@@ -38,6 +44,7 @@ class Seat extends React.Component {
 
             return (
                 <li 
+                    style={{backgroundColor:this.state.backColor}}
                     key={item.row+item.seat} 
                     onClick={this.selectSeat}>
                     {item.row+item.seat}
