@@ -22,17 +22,19 @@ class Row extends React.Component {
             rows: {rows}
         });
     }
-    
+
+    createRows = () => {
+        if(this.state.rows.length === 0) return
+
+        const component = this.state.rows.rows.map( row => {
+            return <ul key={row}>{row}</ul>
+        });
+        return component;
+
+    }
 
     render() {
-
-        let component = "";
-
-        for(let i = 0; i < component.length; i++) {
-            component = component + <ul></ul>
-        }
-
-        return component
+        return this.createRows() || ""
     }
 }
 
