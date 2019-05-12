@@ -22,19 +22,19 @@ example of response:
   Default number of returned items is 12. For different number use /api/movies/?limit=n  where n is number of items you want.
   
  Example of request:
- 
+ ```js
  localhost:3000/api/movies/?size=compact&limit=1
- 
+ ```
  You can also request movies by its genre or age group for which you use genre and age parameters. Example:
- 
+ ```js
  /api/movies/?genre=horror
  /api/movies/?age=mature
- 
+ ```
  advanced request:
- 
+ ```js
 localhost:3000/api/movies/?limit=5&size=compact&genre=horror&age=mature
-
+```
 which will return compact information of 5 horror movies for mature audience.
 
 To get movie by id you call /api/movies/id
-ex: localhost:3000/api/movies/5cd2f32458e6681ba0294bf0
+ex: ```jslocalhost:3000/api/movies/5cd2f32458e6681ba0294bf0```
