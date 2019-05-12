@@ -21,7 +21,7 @@ example of response:
   You can request compact size of this json by using /api/movies/?size=compact
   Default number of returned items is 12. 
   For different number use 
-  ```js
+  ```
   /api/movies/?limit=n  
   where n is number of items you want.
   ```
