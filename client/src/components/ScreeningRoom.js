@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Button, Container, Header, Modal } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import moment from 'moment';
-import Row from "./Row";
+import Rows from "./Rows";
 
 class ScreeningRoom extends React.Component {
     state = {
@@ -44,7 +44,7 @@ class ScreeningRoom extends React.Component {
                 </Header>
                 <Modal.Content>
                 <Container text>
-                    <Row seats={this.state.seats} ></Row>
+                    <Rows seats={this.state.seats} ></Rows>
                 </Container>
                 </Modal.Content>
             </Modal>

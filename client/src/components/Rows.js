@@ -1,7 +1,8 @@
 import React from 'react';
 import Seat from "./Seat";
+import { Item } from 'semantic-ui-react';
 
-class Row extends React.Component {
+class Rows extends React.Component {
 
     constructor(props) {
         super(props);
@@ -25,9 +26,12 @@ class Row extends React.Component {
 
     createRows = () => {
         if(this.state.rows.length === 0) return
-
+        
         const component = this.state.rows.rows.map( row => {
-            return <ul key={row}>{row}</ul>
+            const seats = this.state.seats.filter( item => {
+                if(item.row === row) return item
+            });
+            return <ul key={row}>{row}<Seat seats={seats}/></ul>
         });
         return component;
 
@@ -38,4 +42,4 @@ class Row extends React.Component {
     }
 }
 
-export default Row;
+export default Rows;
