@@ -4,6 +4,7 @@ import { Button, Container, Header, Modal } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import moment from 'moment';
 import Rows from "./Rows";
+import "./ScreeningRoom.css";
 
 class ScreeningRoom extends React.Component {
     state = {
@@ -43,7 +44,7 @@ class ScreeningRoom extends React.Component {
                     <Header.Subheader>{this.state.date}</Header.Subheader>
                 </Header>
                 <Modal.Content>
-                <Container text>
+                <Container text className="screeningRoom">
                     <Rows seats={this.state.seats} ></Rows>
                 </Container>
                 </Modal.Content>

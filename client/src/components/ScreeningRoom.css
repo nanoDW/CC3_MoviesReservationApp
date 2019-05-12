@@ -1,0 +1,20 @@
+.screeningRoom {
+
+}
+
+.screeningRoom ul {
+    display: flex;
+    background-color: rgb(79, 77, 194);
+    margin: 0;
+}
+
+.screeningRoom li {
+    background-color: #345f9e;
+    list-style: none;
+    width: 3rem;
+    padding: 0;
+}
+
+.screeningRoom li:first-child {
+    margin-left: 3rem;
+}

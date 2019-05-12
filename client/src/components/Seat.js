@@ -8,9 +8,9 @@ class Seat extends React.Component {
     }
 
     render() {
-        
         const result = this.state.seats.map( item => {
-            if(item.seat === "false") return <li></li>
+            if(item.seat === "false") return <li style={{backgroundColor:"#888"}}></li>
+
             return <li key={item.row+item.seat}>{item.row}{item.seat}</li>
         });
 
