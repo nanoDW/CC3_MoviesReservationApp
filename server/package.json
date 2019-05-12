@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nanoDW/CC3_MoviesReservationApp.git"
+  },
+  "keywords": [
+    "API"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nanoDW/CC3_MoviesReservationApp/issues"
+  },
+  "homepage": "https://github.com/nanoDW/CC3_MoviesReservationApp#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
