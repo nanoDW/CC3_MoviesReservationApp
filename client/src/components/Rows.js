@@ -1,6 +1,5 @@
 import React from 'react';
 import Seat from "./Seat";
-import { Item } from 'semantic-ui-react';
 
 class Rows extends React.Component {
 
@@ -30,6 +29,7 @@ class Rows extends React.Component {
         const component = this.state.rows.rows.map( row => {
             const seats = this.state.seats.filter( item => {
                 if(item.row === row) return item
+                return false;
             });
             return <ul key={row}>{row}<Seat seats={seats}/></ul>
         });
