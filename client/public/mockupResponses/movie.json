@@ -1,0 +1,12 @@
+{
+"_id": "BsQxddWTdnK4rXIUS9Tr",
+"title": "Die hard",
+"releaseDate": "2019-05-05T00:00:00-00:00",
+"genre": "action",
+"durationInMinutes": 120,
+"shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet, turpis in sollicitudin mollis, ipsum orci vehicula lectus, a finibus risus libero vel risus. Vivamus blandit luctus rhoncus.",
+"fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum pharetra arcu vel tristique. Cras vulputate sollicitudin leo, eu facilisis enim iaculis eget. Nam fringilla non sapien tincidunt vehicula. Sed gravida mi in porta aliquet. Ut varius nunc dui, non consectetur lectus aliquam gravida. Aenean ornare nisl id nunc elementum, ut eleifend eros eleifend. Suspendisse porttitor sollicitudin elit ac fringilla. Cras auctor libero libero, eget pretium nisl fringilla quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas auctor viverra neque, sed cursus neque consequat id. Donec eget luctus quam. Praesent varius augue nec orci mollis, nec posuere risus auctor.",
+"ageGroup": "mature",
+"imageSmall": "https://images-na.ssl-images-amazon.com/images/I/71YhXBjCQeL._SY445_.jpg",
+"imageLarge": "https://images-na.ssl-images-amazon.com/images/I/819cf1ZR2WL.jpg"
+}

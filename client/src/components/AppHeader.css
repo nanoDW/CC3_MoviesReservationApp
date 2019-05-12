@@ -7,26 +7,46 @@
   padding: 10px 30px;
   background: #193052;
 }
+.logo {
+  display: flex;
+  height: 60px;
+  flex-direction: row;
+  align-items: center;
+}
+.cinema-name {
+  color: #fff;
+  margin: auto 20px;
+  font-size: 39px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.4;
+}
 .user-info {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.user-avatar {
-  margin-right: 10px;
-}
-.user-name,
-.cityname {
+.user-name {
   color: #fff;
-  font-size: 17px;
-  padding: 5px;
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  padding: 20px;
 }
-.date {
+
+.user-info .btn,
+.user-info .btn:hover,
+.user-info .btn:focus {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding-left: 15px;
+}
+.user-info .btn div {
+  background-color: transparent;
   color: #fff;
-  font-size: 12px;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
 }
-.location {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.user-info .btn div i {
+  padding-top: 2px;
 }

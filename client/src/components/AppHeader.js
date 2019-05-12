@@ -1,40 +1,52 @@
 import React from "react";
-import { Placeholder, Image } from "semantic-ui-react";
+import { Image, Button, Icon } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
-import moment from "moment";
 import "./AppHeader.css";
-// import moment = require("moment");
 
 class AppHeader extends React.Component {
   userInfo() {
-    if (this.props.loggedIn === "true") {
+    if (this.props.loggedIn) {
       return (
-        <div className="user-info">
-          <Image
-            src="https://react.semantic-ui.com/images/avatar/small/matt.jpg"
-            avatar
-            className="user-avatar"
-          />
+        <>
+          <img className="user-avatar" src="../assets/img/avatar.png" />
           <span className="user-name">{this.props.username}</span>
-        </div>
+          <Button className="btn" animated>
+            <Button.Content visible>Log out</Button.Content>
+            <Button.Content hidden>
+              <Icon name="sign-out" />
+            </Button.Content>
+          </Button>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Button className="btn" animated>
+            <Button.Content visible>Log in</Button.Content>
+            <Button.Content hidden>
+              <Icon name="sign-in" />
+            </Button.Content>
+          </Button>
+          <Button className="btn" animated>
+            <Button.Content visible>Register</Button.Content>
+            <Button.Content hidden>
+              <Icon name="address card" />
+            </Button.Content>
+          </Button>
+        </>
       );
     }
   }
-  dateInfo = moment().format("DD.MM.YYYY");
 
   render() {
     return (
       <div className="app-header">
         <div className="logo">
-          <Placeholder inverted style={{ height: 60, width: 200 }}>
-            <Placeholder.Image />
-          </Placeholder>
+          <img src="../assets/img/logo.svg" alt="logo" />
+          <h1 className="cinema-name">Cinema East</h1>
         </div>
-        {this.userInfo()}
-        <div className="location">
-          <div className="cityname">Wrocław</div>
-          <div className="date">{this.dateInfo}</div>
-        </div>
+
+        <div className="user-info">{this.userInfo()}</div>
       </div>
     );
   }

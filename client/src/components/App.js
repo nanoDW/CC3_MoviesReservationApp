@@ -4,6 +4,7 @@ import LoginForm from "./LoginForm";
 import AppHeader from "./AppHeader";
 import MovieList from "./MovieList";
 import ScreeningRoom from "./ScreeningRoom";
+import MovieDetail from "./MovieDetail";
 
 class App extends React.Component {
   state = {};
@@ -11,9 +12,10 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <AppHeader loggedIn="true" username="Janusz Kowalski" />
+        <AppHeader loggedIn={false} username="Janusz Kowalski" />
         <LoginForm />
-        <MovieList/>
+        <MovieList />
+        <MovieDetail />
         <ScreeningRoom />
       </>
     );
