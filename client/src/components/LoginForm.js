@@ -2,11 +2,12 @@ import React from 'react';
 import { Button, Form, Container, Header, Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import basePath from '../api/basePath';
-
+import SignUpForm from "./SignUpForm";
 
 
 class LoginForm extends React.Component {
     state = { loggedIn: false, email: '', password: '' };
+
 
     onSubmit = async (email, password) => {
         const loginResponse = await basePath({
@@ -21,6 +22,7 @@ class LoginForm extends React.Component {
         if (loginResponse.status === 200) {
             console.log('Logged in successfully')
             this.setState({ loggedIn: true })
+            this.props.handleClose();
         }
     }
     
@@ -50,7 +52,11 @@ class LoginForm extends React.Component {
                         <Button type='submit' fluid size='large'>Sign in</Button>
                     </Form>
                     <Header as='h3' textAlign='center'>Don't have an account yet?</Header>
-                    <Button type='submit' fluid size='large' style={{ marginBottom: '3%' }}>Sign up</Button>
+                    <Modal trigger={
+                        <Button type='submit' fluid size='large' style={{ marginBottom: '3%' }}>Sign up</Button>
+                    } closeIcon>
+                        <SignUpForm />
+                    </Modal>
                 </Container>
                 </Modal.Content>
             </>

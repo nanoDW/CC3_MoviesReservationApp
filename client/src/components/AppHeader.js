@@ -6,6 +6,24 @@ import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 
 class AppHeader extends React.Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = { loginModalOpen: false, signUpModalOpen: false }
+    this.handleLoginOpen = this.handleLoginOpen.bind(this)
+    this.handleLoginClose = this.handleLoginClose.bind(this)
+    this.handleSignUpOpen = this.handleSignUpOpen.bind(this)
+    this.handleSignUpClose = this.handleSignUpClose.bind(this)
+
+  }
+
+  handleLoginOpen = () => this.setState({ loginModalOpen: true })
+  handleLoginClose = () => this.setState({ loginModalOpen: false })
+  handleSignUpOpen = () => this.setState({ signUpModalOpen: true })
+  handleSignUpClose = () => this.setState({ signUpModalOpen: false })
+
+  
   userInfo() {
     if (this.props.loggedIn) {
       return (
@@ -24,24 +42,26 @@ class AppHeader extends React.Component {
       return (
         <>
         <Modal trigger={
-           <Button className="btn" animated>
+           <Button className="btn" animated onClick={this.handleLoginOpen}>
             <Button.Content visible>Log in</Button.Content>
             <Button.Content hidden>
               <Icon name="sign-in" />
             </Button.Content>
             </Button>
-         } closeIcon>
-            <LoginForm />
+         } open={this.state.loginModalOpen}
+         onClose={this.handleLoginClose} closeIcon>
+            <LoginForm handleOpen = {this.handleLoginOpen} handleClose = {this.handleLoginClose}/>
         </Modal>
         <Modal trigger={
-          <Button className="btn" animated>
+          <Button className="btn" animated onClick={this.handleSignUpOpen}>
             <Button.Content visible>Register</Button.Content>
             <Button.Content hidden>
               <Icon name="address card" />
             </Button.Content>
           </Button>
-        } closeIcon>
-            <SignUpForm />
+        } open={this.state.signUpModalOpen}
+         onClose={this.handleSignUpClose} closeIcon>
+            <SignUpForm handleOpen = {this.handleSignUpOpen} handleClose = {this.handleSignUpClose} />
         </Modal>
         </>
       );

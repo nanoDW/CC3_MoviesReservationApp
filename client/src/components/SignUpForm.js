@@ -21,9 +21,10 @@ class SignUpForm extends React.Component {
             }
         });
         console.log(signUpResponse);
-        if (signUpResponse.status === 200) {
+        if (signUpResponse.status === 201) {
             console.log('User registered')
             this.setState({ loggedIn: true })
+            this.props.handleClose();
         }
     }
     
