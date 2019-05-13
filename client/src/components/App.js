@@ -12,14 +12,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="main-wrapper">
+      <>
         <AppHeader loggedIn={false} username="Janusz Kowalski" />
-
-        <LoginForm />
-        <MovieList />
-        <MovieDetail movieID="5cd2f32458e6681ba0294bf0" />
-        <ScreeningRoom />
-      </div>
+        <div className="main-wrapper">
+          <LoginForm />
+          <MovieList />
+          <MovieDetail movieID="5cd2f32458e6681ba0294bf0" />
+          <ScreeningRoom />
+        </div>
+      </>
     );
   }
 }

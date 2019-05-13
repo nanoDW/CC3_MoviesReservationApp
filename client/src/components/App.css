@@ -1,6 +1,6 @@
 .main-wrapper {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 100px);
   padding: 40px 60px;
   background: linear-gradient(270deg, #003d6b 0%, #5c8093 100%);
   background-blend-mode: color-burn;
