@@ -4,17 +4,27 @@ import { Button, Container, Header, Modal } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import moment from 'moment';
 import Rows from "./Rows";
+import ScreeningRoomSubmit from "./ScreeningRoomSubmit";
 import "./ScreeningRoom.css";
 
 class ScreeningRoom extends React.Component {
-    state = {
-        id: "",
-        screeningRoomId: "",
-        movieId: "",
-        date: "",
-        movieTitle: "",
-        seats: []
-    }
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			id: "",
+			screeningRoomId: "",
+			movieId: "",
+			date: "",
+			movieTitle: "",
+			seats: [],
+			selectedSeats: []
+		}
+		
+		this.selectSeat = this.selectSeat.bind(this);
+		//this.unselectSeat = this.unselectSeat.bind(this);
+	}
+    
 
     componentDidMount() {
         axios.get(`http://localhost:3000/api/screenings/5cd6d2921d7bb41d608f5c0a`)
@@ -35,6 +45,26 @@ class ScreeningRoom extends React.Component {
                     })
             })
     }
+	
+	selectSeat(seat) {
+		const seats = this.state.seats;
+		seats.push(seat);
+		
+		this.setState({
+			seats: seats
+		});
+		
+		console.log(this.state.seats)
+	}
+	
+	unselectSeat(seat) {
+		const seats = this.state.seats;
+		seats.push(seat);
+		
+		this.setState({
+			seats: seats
+		});
+	}
 
     render() {
         return (
@@ -45,7 +75,8 @@ class ScreeningRoom extends React.Component {
                 </Header>
                 <Modal.Content>
                 <Container text className="screeningRoom">
-                    <Rows seats={this.state.seats} ></Rows>
+                    <Rows seats={this.state.seats} selectSeat={this.selectSeat} ></Rows>
+					<ScreeningRoomSubmit />
                 </Container>
                 </Modal.Content>
             </Modal>

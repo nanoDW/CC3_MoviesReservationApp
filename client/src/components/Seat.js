@@ -3,11 +3,11 @@ import React from 'react';
 class Seat extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             seatNumber: this.props.seatNumber,
             backColor: ""
         }
+		
 
         this.setColor = this.setColor.bind(this);
         this.selectSeat = this.selectSeat.bind(this);
@@ -15,10 +15,12 @@ class Seat extends React.Component {
 
     selectSeat = (e) => {
         e.preventDefault()
-
-        console.log(e.target.innerText)
-
+		
+        this.props.selectSeat(e.target.innerText);
+		
         this.setColor();
+		
+		console.log(e.target.innerText)
     }
 
     setColor = () => {
