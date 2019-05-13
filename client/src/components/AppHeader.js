@@ -1,7 +1,8 @@
 import React from "react";
-import { Image, Button, Icon } from "semantic-ui-react";
+import { Image, Button, Modal, Icon } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import "./AppHeader.css";
+import LoginForm from "./LoginForm";
 
 class AppHeader extends React.Component {
   userInfo() {
@@ -21,12 +22,16 @@ class AppHeader extends React.Component {
     } else {
       return (
         <>
-          <Button className="btn" animated>
+         <Modal trigger={
+           <Button className="btn" animated>
             <Button.Content visible>Log in</Button.Content>
             <Button.Content hidden>
               <Icon name="sign-in" />
             </Button.Content>
-          </Button>
+            </Button>
+         } closeIcon>
+            <LoginForm />
+          </Modal>
           <Button className="btn" animated>
             <Button.Content visible>Register</Button.Content>
             <Button.Content hidden>
