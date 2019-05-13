@@ -32,7 +32,8 @@ class SeatsInRow extends React.Component {
                 <Seat 
                     key={item.row+item.seat} 
                     onClick={this.selectSeat}
-                    seatNumber={item.row+item.seat}
+                    seatRow={item.row}
+                    seatNumber={item.seat}
                     selectSeat={this.props.selectSeat}>
                 </Seat>
             )
