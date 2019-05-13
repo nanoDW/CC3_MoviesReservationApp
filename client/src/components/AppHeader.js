@@ -3,6 +3,7 @@ import { Image, Button, Modal, Icon } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import "./AppHeader.css";
 import LoginForm from "./LoginForm";
+import SignUpForm from "./SignUpForm";
 
 class AppHeader extends React.Component {
   userInfo() {
@@ -22,7 +23,7 @@ class AppHeader extends React.Component {
     } else {
       return (
         <>
-         <Modal trigger={
+        <Modal trigger={
            <Button className="btn" animated>
             <Button.Content visible>Log in</Button.Content>
             <Button.Content hidden>
@@ -31,13 +32,17 @@ class AppHeader extends React.Component {
             </Button>
          } closeIcon>
             <LoginForm />
-          </Modal>
+        </Modal>
+        <Modal trigger={
           <Button className="btn" animated>
             <Button.Content visible>Register</Button.Content>
             <Button.Content hidden>
               <Icon name="address card" />
             </Button.Content>
           </Button>
+        } closeIcon>
+            <SignUpForm />
+        </Modal>
         </>
       );
     }
