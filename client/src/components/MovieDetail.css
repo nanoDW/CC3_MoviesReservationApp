@@ -1,0 +1,33 @@
+.movie-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  font-family: Montserrat, sans-serif;
+  color: #ffffff;
+  grid-gap: 50px;
+}
+.movie-title {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 55px;
+  /* text-decoration-line: underline; */
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+.movie-details__main {
+  font-size: 20px;
+}
+.movie-details__main span {
+  font-weight: bold;
+}
+
+.movie-details__poster {
+  max-width: 340px;
+  max-height: 450px;
+  justify-self: center;
+  object-fit: contain;
+}
+.movie-full-description {
+  grid-column: 1 / span 3;
+  font-size: 20px;
+}

@@ -2,46 +2,66 @@ import React from "react";
 import {} from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
-// import basePath from '../api/basePath';
+import Schedule from "./Schedule";
+// import basePath from "../api/basePath";
 import "./MovieDetail.css";
 
 class MovieDetail extends React.Component {
   state = {
-    movieInfo: {}
+    title: "",
+    genre: "",
+    duration: "",
+    age: "",
+    image: "",
+    shortDescription: "",
+    fullDescription: ""
   };
 
   componentDidMount() {
-    axios.get("/mockupResponses/movie.json").then(res => {
-      console.log(res);
-      this.setState({
-        movieInfo: res.data
+    axios
+      .get(`http://localhost:3000/api/movies/${this.props.movieID}`)
+      .then(movie => {
+        this.setState({
+          title: movie.data.title,
+          genre: movie.data.genre,
+          duration: movie.data.durationInMinutes,
+          age: movie.data.ageGroup,
+          image: movie.data.imageLarge,
+          shortDescription: movie.data.shortDescription,
+          fullDescription: movie.data.fullDescription
+        });
       });
-      console.log(this.state.movieInfo);
-    });
   }
+
   render() {
     return (
       <>
-        <h2>{this.state.movieInfo.title}</h2>
+        <h2 className="movie-title">{this.state.title}</h2>
         <div className="movie-details">
-          <div className="movie-details__poster" />
+          <img
+            src={this.state.image}
+            alt="poster"
+            className="movie-details__poster"
+          />
           <div className="movie-details__main">
             <p className="movie-parameter">
               <span>Genre: </span>
-              {this.state.movieInfo.genre}
+              {this.state.genre}
             </p>
             <p className="movie-parameter">
               <span>Duration: </span>
-              {this.state.movieInfo.durationInMinutes} min
+              {this.state.duration} min
             </p>
             <p className="movie-parameter">
               <span>Age: </span>
-              {this.state.movieInfo.ageGroup}
+              {this.state.age}
             </p>
             <p className="movie-short-description">
-              {this.state.movieInfo.shortDescription}
+              {this.state.shortDescription}
             </p>
           </div>
+          <Schedule />
+          <p className="movie-full-description">{this.state.fullDescription}</p>
         </div>
       </>
     );
@@ -49,15 +69,3 @@ class MovieDetail extends React.Component {
 }
 
 export default MovieDetail;
-
-// async () => {
-//    const movieResponse = await basePath({
-//       method: 'get',
-//       url: '/movies',
-//       data: this.props.movieID
-//    });
-//    console.log(movieResponse);
-//    if (movieResponse.status === 200) {
-//       this.setState({ movieInfo: movieResponse.data })
-//    }
-// }
