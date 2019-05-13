@@ -54,13 +54,23 @@ router.delete("/:id", async (req, res) => {
 });
 
 router.put("/:id", async(req, res) => {
-    const { error } = validateScreening(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+        const { seats } = await Screening.findById(req.params.id);
+        const selectedSeats = req.body.selectedSeats;
+
+        for(let i = 0; i < seats.length; i++) {
+            selectedSeats.map( item => {
+                if(seats[i].row === item[0] && seats[i].seat === item[1]) {
+                    seats[i].isOccupied = req.body.isOccupied;
+                    seats[i].userID = req.body.user;
+                }
+            });
+        }
 
     const result = await Screening.findByIdAndUpdate(req.params.id, {
         $set: {
+            seats: seats,
             isOccupied: req.body.isOccupied,
-            userID: req.user
+            userID: req.body.user
         }
     }, { new: true });
 

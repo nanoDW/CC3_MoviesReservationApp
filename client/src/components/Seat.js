@@ -4,6 +4,7 @@ class Seat extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            seatRow: this.props.seatRow,
             seatNumber: this.props.seatNumber,
             backColor: "#345f9e"
         }
@@ -11,8 +12,8 @@ class Seat extends React.Component {
 
     selectSeat = (e) => {
         e.preventDefault()
-		
-        this.props.selectSeat(e.target.innerText)
+		console.log()
+        this.props.selectSeat(this.state.seatRow,this.state.seatNumber)
 		
         this.setColor();
     }
@@ -28,7 +29,7 @@ class Seat extends React.Component {
                     style={{backgroundColor:this.state.backColor}}
                     key={this.state.seatNumber}
                     onClick={this.selectSeat}>
-                    {this.state.seatNumber}
+                    {this.state.seatRow+this.state.seatNumber}
                 </li>
             )};
     }

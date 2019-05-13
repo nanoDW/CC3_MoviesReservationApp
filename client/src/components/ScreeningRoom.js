@@ -46,17 +46,18 @@ class ScreeningRoom extends React.Component {
             })
     }
 	
-	selectSeat(seat) {
+	selectSeat(row, seat) {
 		const seats = this.state.selectedSeats;
-		let index = seats.indexOf(seat);
+        let index = seats.findIndex(item => {
+            return item.toString() === [row, seat].toString()});
         if (index !== -1) seats.splice(index, 1);
-        else seats.push(seat);
+        else seats.push([row, seat]);
 		
 		this.setState({
 			selectedSeats: seats
 		});
 		
-		console.log(this.state.selectedSeats)
+        console.log(this.state.selectedSeats)
 	}
 
     render() {
@@ -69,7 +70,10 @@ class ScreeningRoom extends React.Component {
                 <Modal.Content>
                 <Container text className="screeningRoom">
                     <Rows seats={this.state.seats} selectSeat={this.selectSeat} ></Rows>
-					<ScreeningRoomSubmit />
+					<ScreeningRoomSubmit 
+                        screeningId={this.state.id} 
+                        selectedSeats={this.state.selectedSeats} 
+                    />
                 </Container>
                 </Modal.Content>
             </Modal>
