@@ -9,6 +9,7 @@ class Rows extends React.Component {
             seats: this.props.seats,
             rows: []
         };
+        this.seatElement = React.createRef();
     }
 
     componentDidMount() {
@@ -33,7 +34,7 @@ class Rows extends React.Component {
                 if(item.row === row) return item
                 return false;
             });
-            return <ul key={row}>{row}<SeatsInRow seats={seats} selectSeat={this.props.selectSeat} /></ul>
+            return <ul key={row}>{row}<SeatsInRow seats={seats} selectSeat={this.props.selectSeat} ref={this.seatElement} /></ul>
         });
         return component;
 

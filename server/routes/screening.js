@@ -30,6 +30,8 @@ router.post("/", async (req, res) => {
     
     for(let i = 0; i < arr.length; i++) {
         for(seat of arr[i][1]) {
+            if(arr[i][0]==="F") break;
+            if(Number.parseInt(arr[i][0]) > 7) continue;
             myHeadHurts.push({
                 row: arr[i][0],
                 seat: seat,

@@ -5,10 +5,13 @@ class SeatsInRow extends React.Component {
     constructor(props) {
         super(props);
 
+
         this.state = {
             seats: this.props.seats
         }
     }
+
+
 
     render() {
         let i = 0;

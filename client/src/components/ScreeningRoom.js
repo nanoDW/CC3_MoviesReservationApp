@@ -9,7 +9,9 @@ import "./ScreeningRoom.css";
 
 class ScreeningRoom extends React.Component {
 	constructor(props) {
-		super(props);
+        super(props);
+        
+        this.seatElement = React.createRef();
 		
 		this.state = {
 			id: "",
@@ -21,9 +23,14 @@ class ScreeningRoom extends React.Component {
 			selectedSeats: []
 		}
 		
-		this.selectSeat = this.selectSeat.bind(this);
+        this.selectSeat = this.selectSeat.bind(this);
+        this.resetSeats = this.resetSeats.bind(this);
 	}
     
+    resetSeats(seats) {
+        this.setState({seats: seats});
+        this.seatElement.current.setState({seats: seats})
+    }
 
     componentDidMount() {
         axios.get(`http://localhost:3000/api/screenings/5cd6d2921d7bb41d608f5c0a`)
@@ -61,6 +68,7 @@ class ScreeningRoom extends React.Component {
 	}
 
     render() {
+        console.log(this.seatElement.current)
         return (
             <Modal trigger={<Button onClick={() => {this.setState({selectedSeats: []})}}>What's on:</Button>} closeIcon>
                 <Header as='h2' textAlign='center'>
@@ -69,10 +77,11 @@ class ScreeningRoom extends React.Component {
                 </Header>
                 <Modal.Content>
                 <Container text className="screeningRoom">
-                    <Rows seats={this.state.seats} selectSeat={this.selectSeat} ></Rows>
+                    <Rows seats={this.state.seats} selectSeat={this.selectSeat} ref={this.seatElement} ></Rows>
 					<ScreeningRoomSubmit 
                         screeningId={this.state.id} 
                         selectedSeats={this.state.selectedSeats} 
+                        resetSeats={this.resetSeats}
                     />
                 </Container>
                 </Modal.Content>

@@ -19,6 +19,8 @@ class ScreeningRoomSubmit extends React.Component {
         });
 
         console.log(reservationResponse);
+
+        this.props.resetSeats(reservationResponse.data.seats)
     }
 
     render() {
