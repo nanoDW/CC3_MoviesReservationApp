@@ -45,12 +45,3 @@ class MovieList extends React.Component {
 }
 
 export default MovieList;
-
-/*<ul>
-                    {items.map(item => (
-                        <li key={items.genre}>
-                            <img src = {item.imageSmall} alt = "movie poster"/>
-                            {item.title}
-                        </li>
-                    ))};
-                </ul>*/
