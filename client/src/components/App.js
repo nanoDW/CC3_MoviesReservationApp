@@ -15,7 +15,6 @@ class App extends React.Component {
       <>
         <AppHeader loggedIn={false} username="Janusz Kowalski" />
         <div className="main-wrapper">
-          <LoginForm />
           <MovieList />
           <MovieDetail movieID="5cd2f32458e6681ba0294bf0" />
           <ScreeningRoom />

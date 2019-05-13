@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Form, Container, Header, Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import basePath from '../api/basePath';
-import "./LoginForm.css";
+
 
 
 class LoginForm extends React.Component {
@@ -31,7 +31,7 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <Modal trigger={<Button>Login</Button>} closeIcon>
+            <>
                 <Header as='h2' textAlign='center'>
                     Log in
                     <Header.Subheader>Only logged in users can make reservations</Header.Subheader>
@@ -53,7 +53,7 @@ class LoginForm extends React.Component {
                     <Button type='submit' fluid size='large' style={{ marginBottom: '3%' }}>Sign up</Button>
                 </Container>
                 </Modal.Content>
-            </Modal>
+            </>
         )
     }
 }
