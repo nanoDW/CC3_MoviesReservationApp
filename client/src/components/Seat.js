@@ -5,12 +5,8 @@ class Seat extends React.Component {
         super(props);
         this.state = {
             seatNumber: this.props.seatNumber,
-            backColor: ""
+            backColor: "#345f9e"
         }
-		
-
-        this.setColor = this.setColor.bind(this);
-        this.selectSeat = this.selectSeat.bind(this);
     }
 
     selectSeat = (e) => {

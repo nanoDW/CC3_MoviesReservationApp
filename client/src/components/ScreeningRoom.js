@@ -33,7 +33,8 @@ class ScreeningRoom extends React.Component {
                     screeningRoomId: res.data.screeningRoomId,
                     movieId: res.data.movieId,
                     date: moment(res.data.date).format('MMMM Do YYYY, h:mm:ss').toString(),
-                    seats: res.data.seats }
+                    seats: res.data.seats
+                }
                 )})
             .then( () => {
                 axios.get(`http://localhost:3000/api/movies/${this.state.movieId}`)
@@ -60,7 +61,7 @@ class ScreeningRoom extends React.Component {
 
     render() {
         return (
-            <Modal trigger={<Button>What's on:</Button>} closeIcon>
+            <Modal trigger={<Button onClick={() => {this.setState({selectedSeats: []})}}>What's on:</Button>} closeIcon>
                 <Header as='h2' textAlign='center'>
                     {this.state.movieTitle}
                     <Header.Subheader>{this.state.date}</Header.Subheader>
