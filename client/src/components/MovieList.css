@@ -1,3 +1,7 @@
-.movieList{
-    background-image:linear-gradient(to right, rgb(255, 255, 255), rgba(0,61,107));
+.movieImage{
+    display: flex;
+}
+.imagesmall{
+    height: 288px;
+    width: 199px;
 }
