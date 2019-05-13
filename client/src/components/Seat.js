@@ -5,7 +5,7 @@ class Seat extends React.Component {
         super(props);
 
         this.state = {
-            seats: this.props.seats,
+            seatNumber: this.props.seatNumber,
             backColor: ""
         }
 
@@ -18,7 +18,7 @@ class Seat extends React.Component {
 
         console.log(e.target.innerText)
 
-        //this.setColor();
+        this.setColor();
     }
 
     setColor = () => {
@@ -27,33 +27,14 @@ class Seat extends React.Component {
     }
 
     render() {
-        let i = 0;
-        const result = this.state.seats.map( item => {
-            if(item.seat === "false") {
-                i++;
-                return <li key={"empty-"+item.row+i} style={{backgroundColor:"#888"}}></li>   
-            }
-
-            if(item.isOccupied === true) {
-                return (
-                    <li key={item.row+item.seat} style={{backgroundColor:"#ac3838"}}>
-                        {item.row+item.seat}
-                    </li>
-                )
-            }
-
             return (
                 <li 
                     style={{backgroundColor:this.state.backColor}}
-                    key={item.row+item.seat} 
+                    key={this.state.seatNumber}
                     onClick={this.selectSeat}>
-                    {item.row+item.seat}
+                    {this.state.seatNumber}
                 </li>
-            )
-        });
-
-        return result
+            )};
     }
-}
 
 export default Seat;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Seat from "./Seat";
+import SeatsInRow from "./SeatsInRow";
 
 class Rows extends React.Component {
 
@@ -31,7 +31,7 @@ class Rows extends React.Component {
                 if(item.row === row) return item
                 return false;
             });
-            return <ul key={row}>{row}<Seat seats={seats}/></ul>
+            return <ul key={row}>{row}<SeatsInRow seats={seats}/></ul>
         });
         return component;
 
