@@ -22,7 +22,6 @@ class ScreeningRoom extends React.Component {
 		}
 		
 		this.selectSeat = this.selectSeat.bind(this);
-		//this.unselectSeat = this.unselectSeat.bind(this);
 	}
     
 
@@ -47,23 +46,16 @@ class ScreeningRoom extends React.Component {
     }
 	
 	selectSeat(seat) {
-		const seats = this.state.seats;
-		seats.push(seat);
+		const seats = this.state.selectedSeats;
+		let index = seats.indexOf(seat);
+        if (index !== -1) seats.splice(index, 1);
+        else seats.push(seat);
 		
 		this.setState({
-			seats: seats
+			selectedSeats: seats
 		});
 		
-		console.log(this.state.seats)
-	}
-	
-	unselectSeat(seat) {
-		const seats = this.state.seats;
-		seats.push(seat);
-		
-		this.setState({
-			seats: seats
-		});
+		console.log(this.state.selectedSeats)
 	}
 
     render() {
