@@ -16,7 +16,7 @@ class Seat extends React.Component {
     selectSeat = (e) => {
         e.preventDefault()
 		
-        this.props.selectSeat(e.target.innerText);
+        //this.props.selectSeat(e.target.innerText);
 		
         this.setColor();
 		
