@@ -28,10 +28,10 @@ class MovieList extends React.Component {
                 <div className="movieList_release">
                     <div>Release</div>
                 </div>
-                <div>
+                <div className = "movieImage">
                     {items.map(item => (
                         <div key={items.genre}>
-                            <img src = {item.imageSmall} alt = "movie poster"/>
+                            <img className = "imagesmall" src = {item.imageSmall} alt = "movie poster"/>
                             {item.title}
                         </div>
                     ))};

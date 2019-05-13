@@ -1,0 +1,7 @@
+.movieImage{
+    display: flex;
+}
+.imagesmall{
+    height: 288px;
+    width: 199px;
+}
