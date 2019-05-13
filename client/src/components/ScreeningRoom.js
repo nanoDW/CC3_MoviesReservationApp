@@ -22,7 +22,7 @@ class ScreeningRoom extends React.Component {
 		}
 		
 		this.selectSeat = this.selectSeat.bind(this);
-		this.unselectSeat = this.unselectSeat.bind(this);
+		//this.unselectSeat = this.unselectSeat.bind(this);
 	}
     
 
