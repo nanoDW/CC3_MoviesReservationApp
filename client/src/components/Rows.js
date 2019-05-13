@@ -21,6 +21,8 @@ class Rows extends React.Component {
         this.setState({
             rows: {rows}
         });
+		
+		
     }
 
     createRows = () => {
@@ -31,7 +33,7 @@ class Rows extends React.Component {
                 if(item.row === row) return item
                 return false;
             });
-            return <ul key={row}>{row}<SeatsInRow seats={seats}/></ul>
+            return <ul key={row}>{row}<SeatsInRow seats={seats} selectSeat={this.props.selectSeat} /></ul>
         });
         return component;
 
