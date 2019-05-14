@@ -14,7 +14,8 @@ class MovieDetail extends React.Component {
     age: "",
     image: "",
     shortDescription: "",
-    fullDescription: ""
+    fullDescription: "",
+    screenings: []
   };
 
   componentDidMount() {
@@ -28,7 +29,8 @@ class MovieDetail extends React.Component {
           age: movie.data.ageGroup,
           image: movie.data.imageLarge,
           shortDescription: movie.data.shortDescription,
-          fullDescription: movie.data.fullDescription
+          fullDescription: movie.data.fullDescription,
+          screenings: movie.data.screenings
         });
       });
   }
@@ -60,7 +62,7 @@ class MovieDetail extends React.Component {
               {this.state.shortDescription}
             </p>
           </div>
-          <Schedule />
+          <Schedule screenings={this.state.screenings} />
           <p className="movie-full-description">{this.state.fullDescription}</p>
         </div>
       </>
