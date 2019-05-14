@@ -10,12 +10,13 @@ class AppHeader extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { loginModalOpen: false, signUpModalOpen: false, loggedIn: false }
+    this.state = { loginModalOpen: false, signUpModalOpen: false}
     this.handleLoginOpen = this.handleLoginOpen.bind(this)
     this.handleLoginClose = this.handleLoginClose.bind(this)
     this.handleSignUpOpen = this.handleSignUpOpen.bind(this)
     this.handleSignUpClose = this.handleSignUpClose.bind(this)
     this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
 
   }
 
@@ -23,14 +24,15 @@ class AppHeader extends React.Component {
   handleLoginClose = () => this.setState({ loginModalOpen: false })
   handleSignUpOpen = () => this.setState({ signUpModalOpen: true })
   handleSignUpClose = () => this.setState({ signUpModalOpen: false })
-  handleLogin = () => this.setState({ loggedIn: true })
+  handleLogin = () => {
+    this.props.handleLogin();
+  }
   handleLogout = () => {
-    this.setState({ loggedIn: false });
-    document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+    this.props.handleLogout();
   }
   
   userInfo() {
-    if (this.state.loggedIn) {
+    if (this.props.loggedIn) {
       return (
         <>
           <img className="user-avatar" src="../assets/img/avatar.png" />

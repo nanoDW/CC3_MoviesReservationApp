@@ -8,12 +8,25 @@ import MovieDetail from "./MovieDetail";
 import "./App.css";
 
 class App extends React.Component {
-  state = {};
+  
+  constructor(props) {
+    super(props)
+
+    this.state = { loggedIn: false }
+    this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
+  }
+
+  handleLogin = () => this.setState({ loggedIn: true })
+  handleLogout = () => {
+    this.setState({ loggedIn: false });
+    document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+  }
 
   render() {
     return (
       <>
-        <AppHeader loggedIn={false} username="Janusz Kowalski" />
+        <AppHeader loggedIn={this.state.loggedIn} handleLogin={this.handleLogin} handleLogout={this.handleLogout} username="Janusz Kowalski" />
         <div className="main-wrapper">
           <MovieList />
           <MovieDetail movieID="5cd2f32458e6681ba0294bf0" />
