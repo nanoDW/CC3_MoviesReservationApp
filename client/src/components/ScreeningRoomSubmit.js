@@ -14,7 +14,8 @@ class ScreeningRoomSubmit extends React.Component {
             data: {
                 selectedSeats: this.props.selectedSeats,
                 isOccupied: true
-            }
+            },
+            withCredentials: true
         });
 
         console.log(reservationResponse);

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import basePath from '../api/basePath';
 import { Button, Container, Header, Modal } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import moment from 'moment';
@@ -33,59 +34,8 @@ class ScreeningRoom extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/api/screenings/${this.state.id}`)
-            .then(res => {
-                this.setState({
-                    id: res.data._id,
-                    screeningRoomId: res.data.screeningRoomId,
-                    movieId: res.data.movieId,
-                    date: moment(res.data.date).format('MMMM Do YYYY, h:mm:ss').toString(),
-                    seats: res.data.seats
-                }
-                )})
-            .then( () => {
-                axios.get(`http://localhost:3000/api/movies/${this.state.movieId}`)
-                    .then(movie => {
-                        this.setState({
-                            movieTitle: movie.data.title
-                        })
-                    })
-            })
+        this.getScreening()
     }
-	
-	getScreening() {
-        axios.get(`http://localhost:3000/api/screenings/${this.state.id}`)
-            .then(res => {
-                this.setState({
-                    id: res.data._id,
-                    screeningRoomId: res.data.screeningRoomId,
-                    movieId: res.data.movieId,
-                    date: moment(res.data.date).format('MMMM Do YYYY, h:mm:ss').toString(),
-                    seats: res.data.seats
-                }
-                )})
-            .then( () => {
-                axios.get(`http://localhost:3000/api/movies/${this.state.movieId}`)
-                    .then(movie => {
-                        this.setState({
-                            movieTitle: movie.data.title
-                        })
-                    })
-            })
-    }
-	
-	selectSeat(row, seat) {
-		const seats = this.state.selectedSeats;
-        let index = seats.findIndex(item => {
-            return item.toString() === [row, seat].toString()});
-        if (index !== -1) seats.splice(index, 1);
-        else seats.push([row, seat]);
-		
-		this.setState({
-			selectedSeats: seats
-		});
-		
-	}
 
     render() {
         console.log(this.seatElement.current)
@@ -110,6 +60,45 @@ class ScreeningRoom extends React.Component {
                 </Modal.Content>
             </Modal>
         );
+    }
+
+    getScreening = async () => {
+
+        const reservationResponse = await basePath({
+                method: 'get',
+                url: `/api/screenings/${this.state.id}`,
+                withCredentials: true
+            }).then(res => {
+                this.setState({
+                    id: res.data._id,
+                    screeningRoomId: res.data.screeningRoomId,
+                    movieId: res.data.movieId,
+                    date: moment(res.data.date).format('MMMM Do YYYY, h:mm:ss').toString(),
+                    seats: res.data.seats
+                })
+            })
+            .then(() => {
+                axios.get(`http://localhost:3000/api/movies/${this.state.movieId}`)
+                    .then(movie => {
+                        this.setState({
+                            movieTitle: movie.data.title
+                        })
+                    })
+            })
+    }
+
+    selectSeat(row, seat) {
+        const seats = this.state.selectedSeats;
+        let index = seats.findIndex(item => {
+            return item.toString() === [row, seat].toString()
+        });
+        if (index !== -1) seats.splice(index, 1);
+        else seats.push([row, seat]);
+
+        this.setState({
+            selectedSeats: seats
+        });
+
     }
 
 }
