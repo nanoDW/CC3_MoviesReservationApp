@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import "semantic-ui-css/semantic.min.css";
 import './MovieList.css'
 
 
@@ -31,7 +32,7 @@ class MovieList extends React.Component {
                     {movie_info.map(item => (
                         <div key={item._id}>
                             <img className = "movieList_imagesmall" src = {item.imageSmall} alt = "movieList_movie poster"/>
-                            <p>{item.title}</p>
+                            <p className = "movieList_title">{item.title}</p>
                         </div>
                     ))};
                 </div>
