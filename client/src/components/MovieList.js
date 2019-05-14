@@ -11,7 +11,7 @@ class MovieList extends React.Component {
     }
     
     componentDidMount() {
-            axios.get(`http://localhost:3000/api/movies/?size=compact&limit=10`)
+            axios.get(`http://localhost:3000/api/movies`)
                 .then(res => {
                     console.log(res);
                     this.setState({
