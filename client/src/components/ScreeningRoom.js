@@ -14,7 +14,7 @@ class ScreeningRoom extends React.Component {
         this.seatElement = React.createRef();
 		
 		this.state = {
-			id: "",
+			id: this.props.screeningId,
 			screeningRoomId: "",
 			movieId: "",
 			date: "",
@@ -33,7 +33,7 @@ class ScreeningRoom extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3000/api/screenings/5cd6d2921d7bb41d608f5c0a`)
+        axios.get(`http://localhost:3000/api/screenings/${this.state.id}`)
             .then(res => {
                 this.setState({
                     id: res.data._id,

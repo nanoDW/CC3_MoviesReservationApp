@@ -13,8 +13,7 @@ class ScreeningRoomSubmit extends React.Component {
             url: '/api/screenings/'+this.props.screeningId,
             data: {
                 selectedSeats: this.props.selectedSeats,
-                isOccupied: true,
-                user: "5cd07475dd29be1754398730"//this.props.userId
+                isOccupied: true
             }
         });
 
