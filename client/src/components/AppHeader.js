@@ -10,11 +10,12 @@ class AppHeader extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { loginModalOpen: false, signUpModalOpen: false }
+    this.state = { loginModalOpen: false, signUpModalOpen: false, loggedIn: false }
     this.handleLoginOpen = this.handleLoginOpen.bind(this)
     this.handleLoginClose = this.handleLoginClose.bind(this)
     this.handleSignUpOpen = this.handleSignUpOpen.bind(this)
     this.handleSignUpClose = this.handleSignUpClose.bind(this)
+    this.handleLogin = this.handleLogin.bind(this)
 
   }
 
@@ -22,10 +23,10 @@ class AppHeader extends React.Component {
   handleLoginClose = () => this.setState({ loginModalOpen: false })
   handleSignUpOpen = () => this.setState({ signUpModalOpen: true })
   handleSignUpClose = () => this.setState({ signUpModalOpen: false })
-
+  handleLogin = () => this.setState({ loggedIn: true })
   
   userInfo() {
-    if (this.props.loggedIn) {
+    if (this.state.loggedIn) {
       return (
         <>
           <img className="user-avatar" src="../assets/img/avatar.png" />
@@ -50,7 +51,7 @@ class AppHeader extends React.Component {
             </Button>
          } open={this.state.loginModalOpen}
          onClose={this.handleLoginClose} closeIcon>
-            <LoginForm handleOpen = {this.handleLoginOpen} handleClose = {this.handleLoginClose}/>
+            <LoginForm handleLogin = {this.handleLogin} handleOpen = {this.handleLoginOpen} handleClose = {this.handleLoginClose}/>
         </Modal>
         <Modal trigger={
           <Button className="btn" animated onClick={this.handleSignUpOpen}>

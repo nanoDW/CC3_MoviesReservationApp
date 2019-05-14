@@ -21,7 +21,7 @@ class LoginForm extends React.Component {
         console.log(loginResponse);
         if (loginResponse.status === 200) {
             console.log('Logged in successfully')
-            this.setState({ loggedIn: true })
+            this.props.handleLogin();
             this.props.handleClose();
         }
     }

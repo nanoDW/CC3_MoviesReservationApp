@@ -9,7 +9,6 @@ router.use(cookieParser())
 router.use(auth)
 
 router.get("/", async (req, res) => {
-
     const screenings = await Screening.find()
 
     res.send(screenings);
