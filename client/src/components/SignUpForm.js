@@ -6,6 +6,7 @@ import basePath from '../api/basePath';
 
 
 class SignUpForm extends React.Component {
+    
     state = { loggedIn: false, email: '', password: '', name: '', surname: '', phone: ''};
 
     onSubmit = async (email, password, name, surname, phone) => {
@@ -49,7 +50,7 @@ class SignUpForm extends React.Component {
                         </Form.Field>
                         <Form.Field required>
                             <label>Surname</label>
-                            <input placeholder='Surname' value={this.state.surname} onChange={ (e) => this.setState({ surname: e.target.value })} />
+                            <Form.Input placeholder='Surname' value={this.state.surname} onChange={ (e) => this.setState({ surname: e.target.value })} error/>
                         </Form.Field>
                         <Form.Field required>
                             <label>Email</label>

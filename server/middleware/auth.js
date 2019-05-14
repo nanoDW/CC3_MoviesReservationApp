@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
-const cookieParser = require('cookie-parser');
 
 function auth(req, res, next) {
-    const token = cookieParser(req.cookies.token);
+    const token = req.cookies.token;
     if (!token) {
         return res.status(401).send('Access denied. No token provided.')
     }

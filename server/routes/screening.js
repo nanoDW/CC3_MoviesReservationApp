@@ -3,7 +3,9 @@ const router = express.Router();
 const {Screening, validateScreening} = require('../models/screening');
 const {ScreeningRoom, validateScreeningRoom} = require('../models/screeningRoom');
 const auth = require('../middleware/auth');
+const cookieParser = require('cookie-parser');
 
+router.use(cookieParser())
 router.use(auth)
 
 router.get("/", async (req, res) => {

@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
         }).status(201).send(_.pick(result, ['_id', 'name', 'surname', 'email']));
     }
     catch(err) {
-        res.send(err) 
+        res.send(error.details[0].message) 
     }
 });
 
