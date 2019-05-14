@@ -53,6 +53,27 @@ class ScreeningRoom extends React.Component {
             })
     }
 	
+	getScreening() {
+        axios.get(`http://localhost:3000/api/screenings/${this.state.id}`)
+            .then(res => {
+                this.setState({
+                    id: res.data._id,
+                    screeningRoomId: res.data.screeningRoomId,
+                    movieId: res.data.movieId,
+                    date: moment(res.data.date).format('MMMM Do YYYY, h:mm:ss').toString(),
+                    seats: res.data.seats
+                }
+                )})
+            .then( () => {
+                axios.get(`http://localhost:3000/api/movies/${this.state.movieId}`)
+                    .then(movie => {
+                        this.setState({
+                            movieTitle: movie.data.title
+                        })
+                    })
+            })
+    }
+	
 	selectSeat(row, seat) {
 		const seats = this.state.selectedSeats;
         let index = seats.findIndex(item => {
@@ -64,13 +85,15 @@ class ScreeningRoom extends React.Component {
 			selectedSeats: seats
 		});
 		
-        console.log(this.state.selectedSeats)
 	}
 
     render() {
         console.log(this.seatElement.current)
         return (
-            <Modal trigger={<Button onClick={() => {this.setState({selectedSeats: []})}}>What's on:</Button>} closeIcon>
+            <Modal trigger={<Button onClick={() => {
+				this.setState({selectedSeats: []}); 
+				this.getScreening()
+				}}>What's on:</Button>} closeIcon>
                 <Header as='h2' textAlign='center'>
                     {this.state.movieTitle}
                     <Header.Subheader>{this.state.date}</Header.Subheader>
