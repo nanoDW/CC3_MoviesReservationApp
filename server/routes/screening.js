@@ -2,8 +2,13 @@ const express = require('express');
 const router = express.Router();
 const {Screening, validateScreening} = require('../models/screening');
 const {ScreeningRoom, validateScreeningRoom} = require('../models/screeningRoom');
+const auth = require('../middleware/auth');
+
+router.use(auth)
 
 router.get("/", async (req, res) => {
+	
+	console.log(req.user)
 
     const screenings = await Screening.find()
 
