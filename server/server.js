@@ -27,7 +27,6 @@ app.use('/register', registrRouter);
 app.use('/api/movies', movieRouter);
 app.use('/api/screenings', screeningRouter);
 app.use('/api/testscreening', testscreening);
-testscreening
 
 //server PORT
 const port = process.env.PORT || 3000;
