@@ -6,7 +6,7 @@ const auth = require('../middleware/auth');
 const cookieParser = require('cookie-parser');
 
 router.use(cookieParser())
-router.use(auth)
+//router.use(auth)
 
 router.get("/", async (req, res) => {
     const screenings = await Screening.find()
@@ -21,7 +21,7 @@ router.get("/:id", async (req, res) => {
     res.send(screening);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
     const { error } = validateScreening(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
@@ -51,7 +51,7 @@ router.post("/", async (req, res) => {
         res.send(screening);
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
 
     const result = await Screening.findByIdAndRemove(req.params.id);
     if (!result) return res.status(400).send('No screening exists under given ID.')
@@ -59,7 +59,7 @@ router.delete("/:id", async (req, res) => {
     res.send('Screening deleted successfully');
 });
 
-router.put("/:id", async(req, res) => {
+router.put("/:id", auth, async (req, res) => {
         const { seats } = await Screening.findById(req.params.id);
         const selectedSeats = req.body.selectedSeats;
 
