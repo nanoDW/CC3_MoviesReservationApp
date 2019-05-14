@@ -6,7 +6,7 @@ import SignUpForm from "./SignUpForm";
 
 
 class LoginForm extends React.Component {
-    state = { loggedIn: false, email: '', password: '' };
+    state = { email: '', password: '' };
 
 
     onSubmit = async (email, password) => {

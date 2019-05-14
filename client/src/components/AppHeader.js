@@ -68,7 +68,7 @@ class AppHeader extends React.Component {
           </Button>
         } open={this.state.signUpModalOpen}
          onClose={this.handleSignUpClose} closeIcon>
-            <SignUpForm handleOpen = {this.handleSignUpOpen} handleClose = {this.handleSignUpClose} />
+            <SignUpForm handleLogin = {this.handleLogin} handleOpen = {this.handleSignUpOpen} handleClose = {this.handleSignUpClose} />
         </Modal>
         </>
       );

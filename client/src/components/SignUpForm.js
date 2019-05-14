@@ -4,10 +4,9 @@ import 'semantic-ui-css/semantic.min.css';
 import basePath from '../api/basePath';
 
 
-
 class SignUpForm extends React.Component {
     
-    state = { loggedIn: false, email: '', password: '', name: '', surname: '', phone: ''};
+    state = { email: '', password: '', name: '', surname: '', phone: ''};
 
     onSubmit = async (email, password, name, surname, phone) => {
         const signUpResponse = await basePath({
@@ -19,12 +18,13 @@ class SignUpForm extends React.Component {
                 name: name,
                 surname: surname,
                 phone: phone
-            }
+            },
+            withCredentials: true
         });
         console.log(signUpResponse);
         if (signUpResponse.status === 201) {
             console.log('User registered')
-            this.setState({ loggedIn: true })
+            this.props.handleLogin();
             this.props.handleClose();
         }
     }
