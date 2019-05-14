@@ -67,16 +67,14 @@ router.put("/:id", async(req, res) => {
             selectedSeats.map( item => {
                 if(seats[i].row === item[0] && seats[i].seat === item[1]) {
                     seats[i].isOccupied = req.body.isOccupied;
-                    seats[i].userID = req.body.user;
+                    seats[i].userID = req.body.isOccupied ? req.user : "";
                 }
             });
         }
 
     const result = await Screening.findByIdAndUpdate(req.params.id, {
         $set: {
-            seats: seats,
-            isOccupied: req.body.isOccupied,
-            userID: req.body.user
+            seats: seats
         }
     }, { new: true });
 
