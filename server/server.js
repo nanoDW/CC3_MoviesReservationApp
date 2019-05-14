@@ -6,6 +6,7 @@ const loginRouter = require('./routes/login');
 const registrRouter = require('./routes/register');
 const movieRouter = require('./routes/movie');
 const screeningRouter = require('./routes/screening');
+const testscreening = require('./routes/testscreening');
 
 const app = express();
 // Middleware
@@ -25,6 +26,7 @@ app.use('/login', loginRouter);
 app.use('/register', registrRouter);
 app.use('/api/movies', movieRouter);
 app.use('/api/screenings', screeningRouter);
+app.use('/api/testscreening', testscreening);
 
 //server PORT
 const port = process.env.PORT || 3000;
