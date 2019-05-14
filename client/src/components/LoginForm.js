@@ -16,7 +16,8 @@ class LoginForm extends React.Component {
             data: {
                 email: email,
                 password: password
-            }
+            },
+            withCredentials: true
         });
         console.log(loginResponse);
         if (loginResponse.status === 200) {

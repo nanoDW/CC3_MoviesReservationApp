@@ -24,6 +24,10 @@ class AppHeader extends React.Component {
   handleSignUpOpen = () => this.setState({ signUpModalOpen: true })
   handleSignUpClose = () => this.setState({ signUpModalOpen: false })
   handleLogin = () => this.setState({ loggedIn: true })
+  handleLogout = () => {
+    this.setState({ loggedIn: false });
+    document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+  }
   
   userInfo() {
     if (this.state.loggedIn) {
@@ -33,7 +37,7 @@ class AppHeader extends React.Component {
           <span className="user-name">{this.props.username}</span>
           <Button className="btn" animated>
             <Button.Content visible>Log out</Button.Content>
-            <Button.Content hidden>
+            <Button.Content hidden onClick={this.handleLogout}>
               <Icon name="sign-out" />
             </Button.Content>
           </Button>
