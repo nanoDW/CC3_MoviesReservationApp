@@ -21,6 +21,7 @@ router.get("/", async (req, res) => {
         shortDescription: 1,
         fullDescription: 1,
         ageGroup: 1,
+        imageSmall: 1,
         imageLarge: 1
     }
 
