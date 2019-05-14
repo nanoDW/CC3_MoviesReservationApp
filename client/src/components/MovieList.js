@@ -29,7 +29,7 @@ class MovieList extends React.Component {
                 </div>
                 <div className = "movieList_movieImage">
                     {movie_info.map(item => (
-                        <div key={movie_info.genre}>
+                        <div key={item._id}>
                             <img className = "movieList_imagesmall" src = {item.imageSmall} alt = "movieList_movie poster"/>
                             <p>{item.title}</p>
                         </div>
