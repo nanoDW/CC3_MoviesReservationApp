@@ -1,7 +1,7 @@
-.movieImage{
+.movieList_movieImage {
     display: flex;
 }
-.imagesmall{
+.movieList_imagesmall {
     height: 288px;
     width: 199px;
 }

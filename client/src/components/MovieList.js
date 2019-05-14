@@ -6,8 +6,7 @@ import './MovieList.css'
 class MovieList extends React.Component {
 
     state = {
-        items: [],
-        title: ""
+        movie_info: [],
     }
     
     componentDidMount() {
@@ -15,24 +14,24 @@ class MovieList extends React.Component {
                 .then(res => {
                     console.log(res);
                     this.setState({
-                        items: res.data
+                        movie_info: res.data
                     });
                     console.log(res.data);
                 });
             }
             
     render() {
-        var {items} = this.state;
+        var {movie_info} = this.state;
         return (
             <div className="movieList">
                 <div className="movieList_release">
                     <div>Release</div>
                 </div>
-                <div className = "movieImage">
-                    {items.map(item => (
-                        <div key={items.genre}>
-                            <img className = "imagesmall" src = {item.imageSmall} alt = "movie poster"/>
-                            {item.title}
+                <div className = "movieList_movieImage">
+                    {movie_info.map(item => (
+                        <div key={movie_info.genre}>
+                            <img className = "movieList_imagesmall" src = {item.imageSmall} alt = "movieList_movie poster"/>
+                            <p>{item.title}</p>
                         </div>
                     ))};
                 </div>
