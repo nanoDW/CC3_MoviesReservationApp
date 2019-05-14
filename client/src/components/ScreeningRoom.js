@@ -38,7 +38,6 @@ class ScreeningRoom extends React.Component {
     }
 
     render() {
-        console.log(this.seatElement.current)
         return (
             <Modal trigger={<Button onClick={() => {
 				this.setState({selectedSeats: []}); 
