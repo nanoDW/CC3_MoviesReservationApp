@@ -16,6 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger('tiny'));
 
+// serving frontend
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 // CORS config
 app.use(cors({ 
