@@ -5,7 +5,7 @@
     font-weight: bold;
     font-size: 30px;
     text-align: center;
-    padding: 20px;
+    padding-bottom: 30px;
 }
 .movieList_today {
     font-family: Montserrat, sans-serif;
@@ -13,4 +13,5 @@
     font-weight: bold;
     font-size: 30px;
     text-align: center;
+    padding: 30px;
 }

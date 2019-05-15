@@ -46,7 +46,7 @@ class MovieList extends React.Component {
                     <div>Release</div>
                 </div>
                 <Movie setMovieId={this.props.setMovieId} movieinfo = {this.state.movie_info}/>
-                <div className="movieList_release">
+                <div className="movieList_today">
                     <div>Today</div>
                 </div>
                 <Movie setMovieId={this.props.setMovieId} movieinfo = {this.state.movie_info2}/>
