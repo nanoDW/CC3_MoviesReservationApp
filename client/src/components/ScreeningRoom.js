@@ -73,10 +73,11 @@ class ScreeningRoom extends React.Component {
       );
     } else {
       return (
-        <LoginForm
-          handleLogin={this.handleLogin}
-          handleClose={this.handleLoginClose}
-        />
+            <LoginForm style={{ padding: '10%'}}
+            handleLogin={this.handleLogin}
+            handleClose={this.handleLoginClose}
+            />
+        
       );
     }
   }
@@ -87,15 +88,12 @@ class ScreeningRoom extends React.Component {
           <Button
             onClick={() => {
               this.setState({ selectedSeats: [] });
-              this.getScreening();
-            }}
-          >
+              this.getScreening() }}>
             {this.props.text}
           </Button>
         }
-        closeIcon
-      >
-        <div>{this.ifLogged()}</div>
+        closeIcon>
+      {this.ifLogged()}
       </Modal>
     );
   }
