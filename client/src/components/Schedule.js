@@ -23,7 +23,14 @@ const Schedule = props => {
     });
 
   const screeningDisplay = days.map(day => {
-    return <ScheduleDay day={day} screenings={screeningList} />;
+    return (
+      <ScheduleDay
+        day={day}
+        screenings={screeningList}
+        loggedIn={props.loggedIn}
+        handleLogin={props.handleLogin}
+      />
+    );
   });
   return (
     <div className="movie-schedule">
