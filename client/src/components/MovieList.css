@@ -1,19 +1,11 @@
-.movieList_movieImage {
-    display: grid;
-    grid-auto-columns: 199px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap:10px;
-}
-.movieList_imagesmall {
-    height: 288px;
-    width: 199px;
-}
+
 .movieList_release{
     font-family: Montserrat, sans-serif;
     color: #ffffff;
     font-weight: bold;
     font-size: 30px;
     text-align: center;
+    padding: 20px;
 }
 .movieList_today {
     font-family: Montserrat, sans-serif;
@@ -21,10 +13,4 @@
     font-weight: bold;
     font-size: 30px;
     text-align: center;
-}
-.movieList_title {
-    font-family: Montserrat, sans-serif;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 18px;
 }

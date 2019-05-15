@@ -1,4 +1,4 @@
 {
     "db": "mongodb+srv://cinema-user:test@movies-reservation-app-7tacf.mongodb.net/test?retryWrites=true",
-    "jwtPrivateKey": ""
+    "jwtPrivateKey": "x"
 }
