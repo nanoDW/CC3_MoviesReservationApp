@@ -7,6 +7,7 @@ import moment from 'moment';
 import Rows from "./Rows";
 import ScreeningRoomSubmit from "./ScreeningRoomSubmit";
 import "./ScreeningRoom.css";
+import LoginForm from "./LoginForm";
 
 class ScreeningRoom extends React.Component {
 	constructor(props) {
@@ -26,6 +27,7 @@ class ScreeningRoom extends React.Component {
 		
         this.selectSeat = this.selectSeat.bind(this);
         this.resetSeats = this.resetSeats.bind(this);
+        this.handleLogin = this.handleLogin.bind(this)
 	}
     
     resetSeats(seats) {
@@ -35,16 +37,18 @@ class ScreeningRoom extends React.Component {
 
     componentDidMount() {
         this.getScreening()
-		
-		console.log(this.seatElement)
+        console.log(this.seatElement)
+            
+    }
+        
+    handleLogin = () => {
+    this.props.handleLogin();
     }
 
-    render() {
-        return (
-            <Modal trigger={<Button onClick={() => {
-				this.setState({selectedSeats: []}); 
-				this.getScreening()
-				}}>What's on:</Button>} closeIcon>
+    ifLogged() {
+        if (this.props.loggedIn) {
+            return (
+                <>
                 <Header as='h2' textAlign='center'>
                     {this.state.movieTitle}
                     <Header.Subheader>{this.state.date}</Header.Subheader>
@@ -59,9 +63,23 @@ class ScreeningRoom extends React.Component {
                     />
                 </Container>
                 </Modal.Content>
-            </Modal>
-        );
+                </>
+            )
+        } else {
+            return (
+                <LoginForm handleLogin={this.handleLogin}/> 
+            )
+        }
     }
+    render() {
+        return (
+        <Modal trigger={<Button onClick={() => {
+				this.setState({selectedSeats: []}); 
+				this.getScreening()
+				}}>What's on:</Button>} closeIcon>
+            <div>{this.ifLogged()}</div>
+        </Modal>
+        )}
 
     getScreening = async () => {
 

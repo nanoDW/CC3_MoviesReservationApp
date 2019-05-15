@@ -30,7 +30,7 @@ class App extends React.Component {
         <div className="main-wrapper">
           <MovieList />
           <MovieDetail movieID="5cd2f32458e6681ba0294bf0" />
-          <ScreeningRoom screeningId="5cd9e706f49d2e0ce8f4b990"/>
+          <ScreeningRoom loggedIn={this.state.loggedIn} handleLogin={this.handleLogin} screeningId="5cd9e706f49d2e0ce8f4b990"/>
         </div>
       </>
     );

@@ -26,6 +26,7 @@ class LoginForm extends React.Component {
                 this.props.handleClose();
             }
         }).catch(error => {
+            console.log(error)
             this.setState({ error: error.response.data })
             });
     }
