@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import ScreeningRoom from "./ScreeningRoom";
 import "./ScheduleDay.css";
@@ -10,9 +9,6 @@ const ScheduleDay = props => {
   });
   const displayDayButtons = dayScreenings.map(screening => {
     return (
-      // <Button size="small" className="btn screening-button" key={screening.id}>
-      //   {screening.hour}
-      // </Button>
       <ScreeningRoom
         loggedIn={props.loggedIn}
         handleLogin={props.handleLogin}
