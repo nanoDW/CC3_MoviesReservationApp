@@ -12,7 +12,6 @@ class Seat extends React.Component {
 
     selectSeat = (e) => {
         e.preventDefault()
-		console.log()
         this.props.selectSeat(this.state.seatRow,this.state.seatNumber)
 		
         this.setColor();

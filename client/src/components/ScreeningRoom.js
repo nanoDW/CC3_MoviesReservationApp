@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import basePath from "../api/basePath";
 import { Button, Container, Header, Modal } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
@@ -38,7 +37,6 @@ class ScreeningRoom extends React.Component {
 
   componentDidMount() {
     this.getScreening();
-    console.log(this.seatElement);
   }
 
   handleLogin = () => {
@@ -115,16 +113,16 @@ class ScreeningRoom extends React.Component {
           seats: res.data.seats
         });
       })
-      .then(() => {
-        axios
-          .get(`http://localhost:3000/api/movies/${this.state.movieId}`)
-          .then(movie => {
+      basePath({
+        method: "get",
+        url: `/api/movies/${this.state.movieId}`,
+      })
+          .then(res => {
             this.setState({
-              movieTitle: movie.data.title
+              movieTitle: res.data.title
             });
           });
-      });
-  };
+    }
 
   selectSeat(row, seat) {
     const seats = this.state.selectedSeats;

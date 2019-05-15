@@ -10,9 +10,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { loggedIn: false };
+    this.state = { 
+      loggedIn: false,
+      movieID: "5cd2f32458e6681ba0294bf0"
+      };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.setMovieId = this.setMovieId.bind(this);
   }
 
   handleLogin = () => this.setState({ loggedIn: true });
@@ -20,6 +24,8 @@ class App extends React.Component {
     this.setState({ loggedIn: false });
     document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
   };
+
+  setMovieId = (_id) => this.setState({ movieID: _id });
 
   render() {
     return (
@@ -31,11 +37,11 @@ class App extends React.Component {
           username="Janusz Kowalski"
         />
         <div className="main-wrapper">
-          <MovieList />
+          <MovieList setMovieId={this.setMovieId} />
           <MovieDetail
             loggedIn={this.state.loggedIn}
             handleLogin={this.handleLogin}
-            movieID="5cd2f32458e6681ba0294bf0"
+            movieID={this.state.movieID}
           />
         </div>
       </>
