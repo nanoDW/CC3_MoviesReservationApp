@@ -62,7 +62,11 @@ class MovieDetail extends React.Component {
               {this.state.shortDescription}
             </p>
           </div>
-          <Schedule screenings={this.state.screenings} />
+          <Schedule
+            screenings={this.state.screenings}
+            loggedIn={this.props.loggedIn}
+            handleLogin={this.props.handleLogin}
+          />
           <p className="movie-full-description">{this.state.fullDescription}</p>
         </div>
       </>

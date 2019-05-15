@@ -1,0 +1,8 @@
+.movie-schedule {
+  display: flex;
+  flex-direction: column;
+}
+.movie-schedule h3 {
+  font-size: 30px;
+  margin-bottom: 25px;
+}

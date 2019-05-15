@@ -1,0 +1,21 @@
+.schedule-day {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.schedule-day .schedule-date {
+  font-size: 20px;
+  margin-right: 30px;
+  margin-bottom: 0;
+}
+.schedule-day .btn.screening-button {
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 1.2em;
+  padding-left: 1.2em;
+}
