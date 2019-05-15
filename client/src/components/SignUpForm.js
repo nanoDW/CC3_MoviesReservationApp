@@ -25,6 +25,7 @@ class SignUpForm extends React.Component {
                 console.log('User registered')
                 this.props.handleLogin();
                 this.props.handleClose();
+                this.props.setUser(response.data);
             }
         }).catch(error => {
             this.setState({ error: error.response.data })

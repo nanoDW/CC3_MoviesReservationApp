@@ -24,6 +24,7 @@ class LoginForm extends React.Component {
                 console.log('Logged in successfully')
                 this.props.handleLogin();
                 this.props.handleClose();
+                this.props.setUser(response.data);
             }
         }).catch(error => {
             console.log(error)

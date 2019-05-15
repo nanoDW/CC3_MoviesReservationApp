@@ -57,7 +57,7 @@ class AppHeader extends React.Component {
             </Button>
          } open={this.state.loginModalOpen}
          onClose={this.handleLoginClose} closeIcon>
-            <LoginForm handleLogin = {this.handleLogin} handleOpen = {this.handleLoginOpen} handleClose = {this.handleLoginClose}/>
+            <LoginForm handleLogin = {this.handleLogin} handleOpen = {this.handleLoginOpen} handleClose = {this.handleLoginClose} setUser={this.props.setUser}/>
         </Modal>
         <Modal trigger={
           <Button className="btn" animated onClick={this.handleSignUpOpen}>
@@ -68,7 +68,7 @@ class AppHeader extends React.Component {
           </Button>
         } open={this.state.signUpModalOpen}
          onClose={this.handleSignUpClose} closeIcon>
-            <SignUpForm handleLogin = {this.handleLogin} handleOpen = {this.handleSignUpOpen} handleClose = {this.handleSignUpClose} />
+            <SignUpForm handleLogin = {this.handleLogin} handleOpen = {this.handleSignUpOpen} handleClose = {this.handleSignUpClose} setUser = {this.props.setUser} />
         </Modal>
         </>
       );
