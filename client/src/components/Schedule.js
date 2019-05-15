@@ -29,6 +29,7 @@ const Schedule = props => {
         screenings={screeningList}
         loggedIn={props.loggedIn}
         handleLogin={props.handleLogin}
+        setUser={props.setUser}
       />
     );
   });

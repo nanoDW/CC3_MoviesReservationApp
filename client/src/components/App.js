@@ -45,6 +45,7 @@ class App extends React.Component {
             loggedIn={this.state.loggedIn}
             handleLogin={this.handleLogin}
             movieID={this.state.movieID}
+            setUser={this.setUser}
           />
         </div>
       </>

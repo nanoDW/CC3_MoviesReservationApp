@@ -74,6 +74,7 @@ class ScreeningRoom extends React.Component {
             <LoginForm style={{ padding: '10%'}}
             handleLogin={this.handleLogin}
             handleClose={this.handleLoginClose}
+            setUser={this.props.setUser}
             />
         
       );

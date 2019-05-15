@@ -18,6 +18,7 @@ const ScheduleDay = props => {
         handleLogin={props.handleLogin}
         screeningId={screening.id}
         text={screening.hour}
+        setUser={props.setUser}
       />
     );
   });
