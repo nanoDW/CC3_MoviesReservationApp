@@ -8,7 +8,13 @@
 .movie_imagesmall {
     height: 288px;
     width: 199px;
+    transition: transform 0.2s ease-in-out;
 }
+
+.movie_imagesmall:hover {
+    transform: scale(0.9);
+}
+
 
 .movie_title {
     font-family: Montserrat, sans-serif;
