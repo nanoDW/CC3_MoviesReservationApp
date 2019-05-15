@@ -1,15 +1,15 @@
 import React from 'react';
-import { Button, Form, Container, Header, Modal } from 'semantic-ui-react'
+import { Button, Form, Container, Header, Modal, Message } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import basePath from '../api/basePath';
 
 
 class SignUpForm extends React.Component {
     
-    state = { email: '', password: '', name: '', surname: '', phone: ''};
+    state = { email: '', password: '', name: '', surname: '', phone: '', error: ''};
 
-    onSubmit = async (email, password, name, surname, phone) => {
-        const signUpResponse = await basePath({
+    onSubmit = (email, password, name, surname, phone) => {
+        basePath({
             method: 'post',
             url: '/register',
             data: {
@@ -20,12 +20,25 @@ class SignUpForm extends React.Component {
                 phone: phone
             },
             withCredentials: true
-        });
-        console.log(signUpResponse);
-        if (signUpResponse.status === 201) {
-            console.log('User registered')
-            this.props.handleLogin();
-            this.props.handleClose();
+        }).then(response => {
+            if (response.status === 201) {
+                console.log('User registered')
+                this.props.handleLogin();
+                this.props.handleClose();
+            }
+        }).catch(error => {
+            this.setState({ error: error.response.data })
+        }); 
+    }
+
+    error() {
+        console.log(this.state.error)
+        if (this.state.error) {
+            return (
+                <Message error
+                header = 'Error'
+                content = {this.state.error} />
+            )
         }
     }
     
@@ -43,14 +56,15 @@ class SignUpForm extends React.Component {
                 </Header>
                 <Modal.Content>
                 <Container text>
-                    <Form size='large' onSubmit={this.onFormSubmit}>
+                    <Form size='large' onSubmit={this.onFormSubmit} error>
+                        <div>{this.error()}</div>
                         <Form.Field required>
                             <label>Name</label>
                             <input placeholder='Name' value={this.state.name} onChange={ (e) => this.setState({ name: e.target.value })} />
                         </Form.Field>
                         <Form.Field required>
                             <label>Surname</label>
-                            <Form.Input placeholder='Surname' value={this.state.surname} onChange={ (e) => this.setState({ surname: e.target.value })} error/>
+                            <Form.Input placeholder='Surname' value={this.state.surname} onChange={ (e) => this.setState({ surname: e.target.value })} />
                         </Form.Field>
                         <Form.Field required>
                             <label>Email</label>

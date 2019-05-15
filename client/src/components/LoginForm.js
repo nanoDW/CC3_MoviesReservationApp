@@ -25,11 +25,9 @@ class LoginForm extends React.Component {
                 this.props.handleLogin();
                 this.props.handleClose();
             }
-        })
-            .catch(error => {
-                this.setState({ error: error.response.data })
+        }).catch(error => {
+            this.setState({ error: error.response.data })
             });
-      
     }
     
     onFormSubmit = (event) => {
@@ -58,6 +56,7 @@ class LoginForm extends React.Component {
                 <Modal.Content>
                 <Container text>
                     <Form size='large' onSubmit={this.onFormSubmit} error>
+                        <div>{this.error()}</div>
                         <Form.Field required>
                             <label>Email</label>
                             <input placeholder='Email' value={this.state.email} onChange={ (e) => this.setState({ email: e.target.value })} />
@@ -67,7 +66,6 @@ class LoginForm extends React.Component {
                             <input placeholder='Password' value={this.state.password} onChange={ (e) => this.setState({ password: e.target.value })} />
                         </Form.Field>
                         <Button type='submit' fluid size='large'>Sign in</Button>
-                        <div>{this.error()}</div>
                     </Form>
                     <Header as='h3' textAlign='center'>Don't have an account yet?</Header>
                     <Modal trigger={
