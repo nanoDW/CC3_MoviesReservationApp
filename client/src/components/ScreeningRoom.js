@@ -116,16 +116,16 @@ class ScreeningRoom extends React.Component {
           seats: res.data.seats
         });
       })
-      .then(() => {
-        axios
-          .get(`http://localhost:3000/api/movies/${this.state.movieId}`)
+      basePath({
+        method: "get",
+        url: `/api/screenings/${this.state.movieId}`,
+      })
           .then(movie => {
             this.setState({
               movieTitle: movie.data.title
             });
           });
-      });
-  };
+    }
 
   selectSeat(row, seat) {
     const seats = this.state.selectedSeats;
