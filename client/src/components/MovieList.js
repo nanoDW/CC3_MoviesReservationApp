@@ -31,8 +31,6 @@ class MovieList extends React.Component {
             .then(res => {
                 const movies1 = res.data.slice(0, 6)
                 const movies2 = res.data.slice(6, 12)
-                console.log('movies1', movies1)
-                console.log('movies2', movies2)
                 this.setState({
                     movie_info: movies1,
                     movie_info2: movies2
