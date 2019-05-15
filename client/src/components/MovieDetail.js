@@ -1,28 +1,44 @@
 import React from "react";
 import {} from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
-import axios from "axios";
 import Schedule from "./Schedule";
-// import basePath from "../api/basePath";
+import basePath from "../api/basePath";
 import "./MovieDetail.css";
 
 class MovieDetail extends React.Component {
-  state = {
-    title: "",
-    genre: "",
-    duration: "",
-    age: "",
-    image: "",
-    shortDescription: "",
-    fullDescription: "",
-    screenings: []
-  };
+  constructor(props) {
+      super(props);
+      this.state = {
+        _id: "",
+        title: "",
+        genre: "",
+        duration: "",
+        age: "",
+        image: "",
+        shortDescription: "",
+        fullDescription: "",
+        screenings: []
+      };
+    }
 
   componentDidMount() {
-    axios
-      .get(`http://localhost:3000/api/movies/${this.props.movieID}`)
+    this.getMovie("5cd2f32458e6681ba0294bf0");
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({_id: nextProps.movieID});
+    this.getMovie(nextProps.movieID);
+    console.log(this.state)
+  }
+
+  getMovie = async (id) => {
+     await basePath({
+      method: "get",
+      url: `/api/movies/${id}`
+    })
       .then(movie => {
         this.setState({
+          _id: movie.data._id,
           title: movie.data.title,
           genre: movie.data.genre,
           duration: movie.data.durationInMinutes,
@@ -33,7 +49,7 @@ class MovieDetail extends React.Component {
           screenings: movie.data.screenings
         });
       });
-  }
+    }
 
   render() {
     return (
