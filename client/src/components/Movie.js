@@ -5,8 +5,8 @@ import './Movie.css'
 const Movie = (props) => {
     const movies = props.movieinfo.map((info) => {
     return (
-        <div>
-            <div key={info._id} onClick = {() => {props.setMovieId(info._id)}}>
+        <div key={info._id}>
+            <div onClick = {() => {props.setMovieId(info._id)}}>
                 <img className = "movie_imagesmall" src={info.imageSmall} alt = "movie poster"/>
                 <div className = "movie_title">{info.title}</div>
             </div>
