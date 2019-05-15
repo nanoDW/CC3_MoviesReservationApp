@@ -4,8 +4,9 @@
     color: #ffffff;
     font-weight: bold;
     font-size: 30px;
-    text-align: center;
-    padding: 20px;
+    padding-bottom: 30px;
+    display:flex;
+    justify-content: center;
 }
 .movieList_today {
     font-family: Montserrat, sans-serif;
@@ -13,4 +14,17 @@
     font-weight: bold;
     font-size: 30px;
     text-align: center;
+    padding: 30px;
+}
+.movieList_icon {
+    fill: #ffffff;
+}
+
+.movieList_icon {
+    height: 20px;
+    width: 20px;
+}
+.movieList_release_text{
+    padding-left: 5px;
+    padding-right: 5px;
 }

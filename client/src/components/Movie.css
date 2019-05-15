@@ -1,13 +1,20 @@
 .movie_movieInfo {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .movie_imagesmall {
     height: 288px;
     width: 199px;
+    transition: transform 0.2s ease-in-out;
 }
+
+.movie_imagesmall:hover {
+    transform: scale(0.9);
+}
+
 
 .movie_title {
     font-family: Montserrat, sans-serif;
