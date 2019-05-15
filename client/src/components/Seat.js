@@ -32,6 +32,8 @@ class Seat extends React.Component {
                     {this.state.seatRow+this.state.seatNumber}
                 </li>
             )};
+			
+	
     }
 
 export default Seat;

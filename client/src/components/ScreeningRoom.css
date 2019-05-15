@@ -3,20 +3,25 @@
 }
 
 .screeningRoom ul {
+    list-style: none;
     display: flex;
     background-color: rgb(79, 77, 194);
+	justify-content: space-around;
     margin: 0;
+	padding: 0 0 0 1rem;
 }
 
 .screeningRoom li {
-    list-style: none;
+	display: inline-block;
     width: 3rem;
-    padding: 1rem;
+	height: 3rem;
     margin: 5px;
+	padding-top: 0.5rem;
+	text-align: center;
 }
 
-.screeningRoom li:first-child {
-    margin-left: 3rem;
+.screeningRoom li:nth-child(2) {
+    margin-left: 1rem;
 }
 
 .screeningRoom button {

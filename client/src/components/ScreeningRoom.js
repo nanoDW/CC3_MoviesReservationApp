@@ -35,6 +35,8 @@ class ScreeningRoom extends React.Component {
 
     componentDidMount() {
         this.getScreening()
+		
+		console.log(this.seatElement)
     }
 
     render() {

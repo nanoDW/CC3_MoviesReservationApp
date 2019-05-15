@@ -34,7 +34,7 @@ class Rows extends React.Component {
                 if(item.row === row) return item
                 return false;
             });
-            return <ul key={row}>{row}<SeatsInRow seats={seats} selectSeat={this.props.selectSeat} ref={this.seatElement} /></ul>
+            return <ul key={row}>{row}<SeatsInRow seats={seats} selectSeat={this.props.selectSeat} ref={this.props.innerRef} /></ul>
         });
         return component;
 
@@ -45,4 +45,4 @@ class Rows extends React.Component {
     }
 }
 
-export default Rows;
+export default React.forwardRef((props, ref) => <Rows innerRef={ref} {...props}/>);
