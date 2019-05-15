@@ -27,7 +27,9 @@ class ScreeningRoom extends React.Component {
 		
         this.selectSeat = this.selectSeat.bind(this);
         this.resetSeats = this.resetSeats.bind(this);
-        this.handleLogin = this.handleLogin.bind(this)
+        this.handleLogin = this.handleLogin.bind(this);
+		this.handleLoginClose = this.handleLoginClose.bind(this);
+		
 	}
     
     resetSeats(seats) {
@@ -44,6 +46,8 @@ class ScreeningRoom extends React.Component {
     handleLogin = () => {
     this.props.handleLogin();
     }
+	
+	handleLoginClose = () => this.setState({ loginModalOpen: false });
 
     ifLogged() {
         if (this.props.loggedIn) {
@@ -67,7 +71,7 @@ class ScreeningRoom extends React.Component {
             )
         } else {
             return (
-                <LoginForm handleLogin={this.handleLogin}/> 
+                <LoginForm handleLogin={this.handleLogin} handleClose={this.handleLoginClose}/> 
             )
         }
     }
