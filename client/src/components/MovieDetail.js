@@ -26,9 +26,7 @@ class MovieDetail extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({_id: nextProps.movieID});
     this.getMovie(nextProps.movieID);
-    console.log(this.state)
   }
 
   getMovie = async (id) => {
