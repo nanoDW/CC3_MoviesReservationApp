@@ -10,6 +10,10 @@ class SeatsInRow extends React.Component {
             seats: this.props.seats
         }
     }
+	
+	componentWillReceiveProps(nextProps) {
+		this.setState({ seats: nextProps.seats }); 
+	}
 
 
 

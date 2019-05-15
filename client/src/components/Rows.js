@@ -45,4 +45,4 @@ class Rows extends React.Component {
     }
 }
 
-export default React.forwardRef((props, ref) => <Rows innerRef={ref} {...props}/>);
+export default Rows; //React.forwardRef((props, ref) => <Rows innerRef={ref} {...props}/>);
