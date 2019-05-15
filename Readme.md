@@ -1,7 +1,7 @@
 # CC3 Movie Reservation App
 Simple web app made in React.js that simulates reservation system in a cinema. The project was done during Coders Camp course.
 
-**[Check out live demo here!](#)**
+**[Check out live demo here!](https://peaceful-stream-96686.herokuapp.com/)**
 
 ## Table of contents
 - [CC3 Movie Reservation App](#cc3-movie-reservation-app)
