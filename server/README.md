@@ -46,3 +46,23 @@ ex:
 ```js 
 localhost:3000/api/movies/5cd2f32458e6681ba0294bf0 
 ```
+
+In order to add screenings you need to add screeningRoom first. To add one send post to /api/screeningrooms
+Example of request body:
+
+```js
+{
+	"city": "Warsaw",
+	"cinema": "Cinema East",
+	"screeningRoom": "S02",
+	"seats": {
+		"A": ["1","2","3","4","5","6"],
+		"B": ["1","2","3","4","5","6"],
+		"C": ["1","2","3","4","5","6"],
+		"D": ["1","2","3","4","5","6"],
+		"E": ["1","2","3","4","5","6"],
+		"F": ["1","2","3","4","5","6"],
+	}
+}
+```
+Array seats represents rows and seats in cinema and can be used to draw screening room of the cinema.

@@ -6,7 +6,6 @@ const auth = require('../middleware/auth');
 const cookieParser = require('cookie-parser');
 
 router.use(cookieParser())
-//router.use(auth)
 
 router.get("/", async (req, res) => {
     const screenings = await Screening.find()
