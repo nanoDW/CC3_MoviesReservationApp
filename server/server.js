@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const logger = require('morgan');
-require('./db')();
 const loginRouter = require('./routes/login');
 const registrRouter = require('./routes/register');
 const movieRouter = require('./routes/movie');
@@ -9,10 +8,14 @@ const screeningRouter = require('./routes/screening');
 const screeningRoomRouter = require('./routes/screeningRoom');
 
 const app = express();
+require('./prod')(app);
+require('./db')();
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(logger('dev'));
+app.use(logger('tiny'));
+
 
 // CORS config
 app.use(cors({ 
