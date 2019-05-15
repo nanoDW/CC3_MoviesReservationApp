@@ -80,6 +80,7 @@ class MovieDetail extends React.Component {
             screenings={this.state.screenings}
             loggedIn={this.props.loggedIn}
             handleLogin={this.props.handleLogin}
+            setUser={this.props.setUser}
           />
           <p className="movie-full-description">{this.state.fullDescription}</p>
         </div>
