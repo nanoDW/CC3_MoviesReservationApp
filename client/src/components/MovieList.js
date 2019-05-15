@@ -43,7 +43,9 @@ class MovieList extends React.Component {
         return(
             <div className="movieList">
                 <div className="movieList_release">
-                    <div>Release</div>
+                    <img className="movieList_icon" src="../assets/img/star.svg" alt="star" />
+                    <div className="movieList_release_text"> Release </div>
+                    <img className="movieList_icon" src="../assets/img/star.svg" alt="star" />
                 </div>
                 <Movie setMovieId={this.props.setMovieId} movieinfo = {this.state.movie_info}/>
                 <div className="movieList_today">
