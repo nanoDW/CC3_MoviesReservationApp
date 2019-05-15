@@ -9,7 +9,9 @@ import basePath from '../api/basePath';
 
 class MovieList extends React.Component {
 
-    state = { movie_info: [] };
+    state = { movie_info: [],
+            movie_info2: [],
+    };
     
     componentDidMount() {
     this.getMovieInfo();
@@ -25,8 +27,13 @@ class MovieList extends React.Component {
            axios
            .get(`http://localhost:3000/api/movies/?size=compact&limit=12`)
                 .then(res => {
+                   const movies1 = res.data.slice(0, 6)
+                   const movies2 = res.data.slice(6, 12)
+                   console.log('movies1', movies1)
+                   console.log('movies2', movies2)
                    this.setState({
-                       movie_info: res.data
+                       movie_info: movies1,
+                       movie_info2: movies2
                    });
                });
         
@@ -40,7 +47,11 @@ class MovieList extends React.Component {
                     <div>Release</div>
                 </div>
                 <Movie setMovieId={this.props.setMovieId} movieinfo = {this.state.movie_info}/>
-            </div>
+                <div className="movieList_release">
+                    <div>Today</div>
+                </div>
+                <Movie setMovieId={this.props.setMovieId} movieinfo = {this.state.movie_info2}/>
+            </div>   
         );
     }
 }
