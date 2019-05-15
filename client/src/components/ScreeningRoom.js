@@ -118,11 +118,11 @@ class ScreeningRoom extends React.Component {
       })
       basePath({
         method: "get",
-        url: `/api/screenings/${this.state.movieId}`,
+        url: `/api/movies/${this.state.movieId}`,
       })
-          .then(movie => {
+          .then(res => {
             this.setState({
-              movieTitle: movie.data.title
+              movieTitle: res.data.title
             });
           });
     }
