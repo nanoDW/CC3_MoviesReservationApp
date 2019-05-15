@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
 
         const token = user.generateAuthToken();
 
-        res.cookie('token', token, { maxAge: 900000} ).send('Cookie is set');
+        res.cookie('token', token, { maxAge: 900000} ).send(user.name);
     }
     catch (err) {
         res.send(error.details[0].message)

@@ -36,7 +36,7 @@ router.post("/", async (req, res) => {
 
         res.cookie('token', token, {
             maxAge: 900000
-        }).status(201).send(_.pick(result, ['_id', 'name', 'surname', 'email']));
+        }).status(201).send(user.name);
     }
     catch(err) {
         res.send(error.details[0].message) 
