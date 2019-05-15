@@ -1,12 +1,12 @@
 import React from "react";
-import { Placeholder } from "semantic-ui-react";
+// import { Placeholder } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import moment from "moment";
 
 import "./Schedule.css";
+import ScheduleDay from "./ScheduleDay";
 
 const Schedule = props => {
-  console.log(props.screenings);
   const screeningList = props.screenings.map(screening => {
     return {
       id: screening._id,
@@ -14,26 +14,21 @@ const Schedule = props => {
       hour: moment(screening.date).format("kk:mm")
     };
   });
-  const screeningDisplay = screeningList.map(screening => {
-    return (
-      <li>
-        {screening.day}, {screening.hour}
-      </li>
-    );
+  const days = screeningList
+    .map(screening => {
+      return screening.day;
+    })
+    .filter((value, index, self) => {
+      return self.indexOf(value) === index;
+    });
+
+  const screeningDisplay = days.map(day => {
+    return <ScheduleDay day={day} screenings={screeningList} />;
   });
-  console.log(screeningList);
-  console.log(screeningDisplay);
-  //   const screeningList = props.screenings.map(screening => {
-  //     return (
-  //       <>
-  //         <div key={screening._id}>{screening.date}</div>
-  //       </>
-  //     );
-  //   });
   return (
     <div className="movie-schedule">
       <h3>Weekly Schedule</h3>
-      <ul>{screeningDisplay}</ul>
+      {screeningDisplay}
     </div>
   );
 };
