@@ -24,19 +24,20 @@ class MovieList extends React.Component {
             withCredentials: true
         })
         .then(() => {
-           axios
-           .get(`http://localhost:3000/api/movies/?size=compact&limit=12`)
-                .then(res => {
-                   const movies1 = res.data.slice(0, 6)
-                   const movies2 = res.data.slice(6, 12)
-                   console.log('movies1', movies1)
-                   console.log('movies2', movies2)
-                   this.setState({
-                       movie_info: movies1,
-                       movie_info2: movies2
-                   });
-               });
-        
+           basePath({
+               method: "get",
+               url: `api/movies/?size=compact&limit=12`
+           })
+            .then(res => {
+                const movies1 = res.data.slice(0, 6)
+                const movies2 = res.data.slice(6, 12)
+                console.log('movies1', movies1)
+                console.log('movies2', movies2)
+                this.setState({
+                    movie_info: movies1,
+                    movie_info2: movies2
+                });
+            });
         });
     }
 
