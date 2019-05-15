@@ -19,6 +19,9 @@ Simple web app made in React.js that simulates reservation system in a cinema. T
 Client side of the app was made in React.js, using Create-React-App. It shows currently played movies, new releases, details of selected movie and available screenings. Logged-in user is able to reserve tickets for a movie by selecting seats on displayed layout of the room. App allows also registration of new users.
 
 **Backend:**
+The database is hosted in a cloud - MongoDB Atlas. It stores list of movies, details of each movie, schedules, screenings, rooms layouts with free and reserved seats, users of the app and their reservations.
+We used Express.js to create a sever and manage GET, POST, PUT, DELETE HTTP requests on movies, screenings and reservations.
+User authentication is handled with bcrypt and jsonwebtoken libraries. There is a possibility of registering new users. User gets a cookie storing their JSON web token while they log in. The cookie is removed from the browser when user logs out. Display of movies, movie details and schedule are accessible for all users. Ticket reservation is protected with user authentication and is accessible only for logged in users
 
 ## Technologies
 * React.js
