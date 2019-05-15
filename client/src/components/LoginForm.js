@@ -6,7 +6,11 @@ import SignUpForm from "./SignUpForm";
 
 
 class LoginForm extends React.Component {
-    state = { email: '', password: '', error: '' };
+    
+    constructor(props) {
+        super(props)
+    this.state = { email: '', password: '', error: '' };
+    }
 
 
     onSubmit = (email, password) => {
@@ -73,7 +77,10 @@ class LoginForm extends React.Component {
                     <Modal trigger={
                         <Button type='submit' fluid size='large' style={{ marginBottom: '3%' }}>Sign up</Button>
                     } closeIcon>
-                        <SignUpForm />
+                        <SignUpForm 
+                            handleLogin={this.props.handleLogin}
+                            handleClose={this.props.handleClose}
+                            setUser={this.props.setUser}/>
                     </Modal>
                 </Container>
                 </Modal.Content>
