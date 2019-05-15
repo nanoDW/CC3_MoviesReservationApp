@@ -41,7 +41,7 @@ class MovieDetail extends React.Component {
           genre: movie.data.genre,
           duration: movie.data.durationInMinutes,
           age: movie.data.ageGroup,
-          image: movie.data.imageLarge,
+          image: movie.data.imageSmall,
           shortDescription: movie.data.shortDescription,
           fullDescription: movie.data.fullDescription,
           screenings: movie.data.screenings
