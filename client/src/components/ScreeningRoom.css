@@ -5,7 +5,7 @@
 .screeningRoom ul {
     list-style: none;
     display: flex;
-    background-color: rgb(79, 77, 194);
+    background-color: rgb(62, 86, 190);
 	justify-content: space-around;
     margin: 0;
 	padding: 0 0 0 1rem;
@@ -14,7 +14,8 @@
 .screeningRoom li {
 	display: inline-block;
     width: 3rem;
-	height: 3rem;
+    height: 3rem;
+    border-radius: 10%;
     margin: 5px;
 	padding-top: 0.5rem;
 	text-align: center;
