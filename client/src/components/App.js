@@ -25,7 +25,7 @@ class App extends React.Component {
     document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
   };
 
-  setMovieId = (id) => this.setState({ movieID: id });
+  setMovieId = (_id) => this.setState({ movieID: _id });
 
   render() {
     return (

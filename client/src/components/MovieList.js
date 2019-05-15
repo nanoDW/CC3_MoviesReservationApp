@@ -3,6 +3,7 @@ import axios from 'axios';
 import "semantic-ui-css/semantic.min.css";
 import './MovieList.css';
 import Movie from './Movie.js';
+import basePath from '../api/basePath';
 
 
 
@@ -11,15 +12,26 @@ class MovieList extends React.Component {
     state = { movie_info: [] };
     
     componentDidMount() {
-            axios.get(`http://localhost:3000/api/movies/?size=compact&limit=12`)
+    this.getMovieInfo();
+    }
+
+   getMovieInfo = async () => {
+        const movieresponse = await basePath({
+            method: "get",
+            url: `/api/movies`,
+            withCredentials: true
+        })
+        .then(() => {
+           axios
+           .get(`http://localhost:3000/api/movies/?size=compact&limit=12`)
                 .then(res => {
-                    console.log(res);
-                    this.setState({
-                        movie_info: res.data
-                    });
-                    console.log(res.data);
-                });
-            }
+                   this.setState({
+                       movie_info: res.data
+                   });
+               });
+        
+        });
+    }
 
     render() {
         return(
