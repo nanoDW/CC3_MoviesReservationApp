@@ -11,8 +11,8 @@ class SeatsInRow extends React.Component {
         }
     }
 	
-	componentWillReceiveProps(nextProps) {
-		this.setState({ seats: nextProps.seats }); 
+	static getDerivedStateFromProps(nextProps, state) {
+		return { seats: nextProps.seats }
 	}
 
 
